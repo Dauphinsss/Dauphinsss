@@ -17,4 +17,4 @@
 
 ### 📊 GitHub Stats
 
-![Tu Usuario GitHub stats](https://github-readme-stats.vercel.app/api?username=tuusuario&show_icons=true&theme=radical)
+![Dauphinsss GitHub stats](https://github-readme-stats.vercel.app/api?username=dauphinsss&show_icons=true&theme=radical)
