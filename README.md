@@ -1,7 +1,7 @@
 <div align="center">
   
   <!-- Header animado -->
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Hey!%20Soy%20Marko%20�&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Hey!%20Soy%20Marko%20%F0%9F%90%8B&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32"/>
 
   <!-- Typing SVG -->
   <a href="https://git.io/typing-svg">
@@ -88,8 +88,22 @@ const marko = {
 
 <div align="center">
   
-  <!-- Las estadísticas aparecerán cuando configures tu usuario de GitHub -->
-  <img src="https://img.shields.io/badge/🚀_Pronto_aquí_mis_stats-0d1117?style=for-the-badge" alt="Stats coming soon"/>
+  <a href="https://github.com/dauphinsss">
+    <img height="180em" src="https://github-readme-stats.vercel.app/api?username=dauphinsss&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0d1117&title_color=6ad3f7&icon_color=6ad3f7&text_color=c9d1d9"/>
+    <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dauphinsss&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=6ad3f7&text_color=c9d1d9"/>
+  </a>
+
+<br/><br/>
+
+  <a href="https://github.com/dauphinsss">
+    <img width="70%" src="https://streak-stats.demolab.com/?user=dauphinsss&theme=tokyonight&hide_border=true&background=0D1117&stroke=6ad3f7&ring=6ad3f7&fire=ff6b6b&currStreakLabel=6ad3f7&sideLabels=6ad3f7&dates=8b949e" alt="GitHub Streak"/>
+  </a>
+
+<br/><br/>
+
+  <a href="https://github.com/dauphinsss">
+    <img src="https://github-profile-trophy.vercel.app/?username=dauphinsss&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=7" alt="GitHub Trophies"/>
+  </a>
   
 </div>
 
