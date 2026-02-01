@@ -105,7 +105,7 @@ const marko = {
     <img src="https://github-profile-trophy.vercel.app/?username=Dauphinsss&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=7" alt="GitHub Trophies"/>
   </a>
 
-  <br/><br/>
+<br/><br/>
 
   <!-- Snake animation 🐍 -->
   <picture>
