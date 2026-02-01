@@ -1,11 +1,11 @@
 <div align="center">
   
   <!-- Header animado -->
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Hey!%20Soy%20Marko%20%F0%9F%90%8B&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Hey!%20Soy%20Marko&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32&desc=Fullstack%20Developer&descSize=18&descAlignY=55"/>
 
   <!-- Typing SVG -->
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6AD3F7&center=true&vCenter=true&random=false&width=600&lines=Estudiante+de+Ingenier%C3%ADa+Inform%C3%A1tica+%F0%9F%8E%93;Desarrollador+Fullstack+%F0%9F%9A%80;Apasionado+por+la+web+y+animaciones+%E2%9C%A8;Siempre+aprendiendo+algo+nuevo+%F0%9F%92%A1" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6AD3F7&center=true&vCenter=true&random=false&width=600&lines=Estudiante+de+Ingenier%C3%ADa+Inform%C3%A1tica;Desarrollador+Fullstack;Apasionado+por+la+web+y+animaciones;Siempre+aprendiendo+algo+nuevo" alt="Typing SVG" />
   </a>
 
   <!-- Badges de visitas y seguidores -->
@@ -25,21 +25,21 @@
 
 ```javascript
 const marko = {
-  ubicación: "🌎 Explorando el mundo del código",
-  estudiando: "🎓 Ingeniería Informática",
+  ubicación: "Explorando el mundo del código",
+  estudiando: "Ingeniería Informática",
   enfoque: ["Frontend", "Backend", "Animaciones Web"],
-  diversión: "🎮 Gaming | 🎵 Música | 🎬 Anime",
-  filosofía: "El código es poesía que las máquinas pueden leer 💫",
+  diversión: "Gaming | Música | Anime",
+  filosofía: "El código es poesía que las máquinas pueden leer",
 };
 ```
 
 <br/>
 
-## 🛠️ Mi Stack Tecnológico
+## <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="28"> Mi Stack Tecnológico
 
 <div align="center">
 
-### 💻 Frontend
+### <img src="https://media.giphy.com/media/eNAsjO55tPbgaor7ma/giphy.gif" width="24"/> Frontend
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
@@ -53,7 +53,7 @@ const marko = {
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-### ⚙️ Backend
+### <img src="https://media.giphy.com/media/kdFc8fubgS31b8DsVu/giphy.gif" width="24"/> Backend
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
@@ -61,21 +61,21 @@ const marko = {
 ![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-### 🗄️ Bases de Datos & Cloud
+### <img src="https://media.giphy.com/media/fYSnHlufseco8Fh93Z/giphy.gif" width="24"/> Bases de Datos & Cloud
 
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
 
-### 🎨 Animaciones & Otros
+### <img src="https://media.giphy.com/media/SS8CV2rQdlYNLtBCiF/giphy.gif" width="24"/> Animaciones & Otros
 
 ![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white)
 ![Tauri](https://img.shields.io/badge/Tauri-24C8D8?style=for-the-badge&logo=tauri&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
-### 🤖 IA & Herramientas
+### <img src="https://media.giphy.com/media/LMt9638dO8dftAjtco/giphy.gif" width="24"/> IA & Herramientas
 
 ![Claude](https://img.shields.io/badge/Claude-191919?style=for-the-badge&logo=anthropic&logoColor=white)
 
@@ -84,7 +84,7 @@ const marko = {
 <!-- Separador -->
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
-## 📊 Mis Estadísticas
+## <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="28"> Mis Estadísticas
 
 <div align="center">
   
@@ -119,7 +119,7 @@ const marko = {
 <!-- Separador -->
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
-## 🤝 ¡Conectemos!
+## <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="28"> ¡Conectemos!
 
 <div align="center">
   
@@ -138,7 +138,7 @@ const marko = {
 
 <br/><br/>
 
-### 💬 _"El único límite es tu imaginación"_ ✨
+### _"El único límite es tu imaginación"_
 
   <br/>
   
