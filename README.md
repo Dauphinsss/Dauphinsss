@@ -11,9 +11,9 @@
   <!-- Badges de visitas y seguidores -->
 
 <br/><br/>
-<img src="https://komarev.com/ghpvc/?username=dauphinsss&style=for-the-badge&color=0e75b6" alt="Profile views"/>
-<a href="https://github.com/dauphinsss?tab=followers">
-<img src="https://img.shields.io/github/followers/dauphinsss?style=for-the-badge&color=236ad3&labelColor=1155ba&logo=github" alt="Followers"/>
+<img src="https://komarev.com/ghpvc/?username=Dauphinsss&style=for-the-badge&color=0e75b6" alt="Profile views"/>
+<a href="https://github.com/Dauphinsss?tab=followers">
+<img src="https://img.shields.io/github/followers/Dauphinsss?style=for-the-badge&color=236ad3&labelColor=1155ba&logo=github" alt="Followers"/>
 </a>
 
 </div>
@@ -88,21 +88,21 @@ const marko = {
 
 <div align="center">
   
-  <a href="https://github.com/dauphinsss">
-    <img height="180em" src="https://github-readme-stats.vercel.app/api?username=dauphinsss&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0d1117&title_color=6ad3f7&icon_color=6ad3f7&text_color=c9d1d9"/>
-    <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dauphinsss&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=6ad3f7&text_color=c9d1d9"/>
+  <a href="https://github.com/Dauphinsss">
+    <img height="180em" src="https://github-readme-stats.vercel.app/api?username=Dauphinsss&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0d1117&title_color=6ad3f7&icon_color=6ad3f7&text_color=c9d1d9"/>
+    <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Dauphinsss&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=6ad3f7&text_color=c9d1d9"/>
   </a>
 
 <br/><br/>
 
-  <a href="https://github.com/dauphinsss">
-    <img width="70%" src="https://streak-stats.demolab.com/?user=dauphinsss&theme=tokyonight&hide_border=true&background=0D1117&stroke=6ad3f7&ring=6ad3f7&fire=ff6b6b&currStreakLabel=6ad3f7&sideLabels=6ad3f7&dates=8b949e" alt="GitHub Streak"/>
+  <a href="https://github.com/Dauphinsss">
+    <img width="70%" src="https://streak-stats.demolab.com/?user=Dauphinsss&theme=tokyonight&hide_border=true&background=0D1117&stroke=6ad3f7&ring=6ad3f7&fire=ff6b6b&currStreakLabel=6ad3f7&sideLabels=6ad3f7&dates=8b949e" alt="GitHub Streak"/>
   </a>
 
 <br/><br/>
 
-  <a href="https://github.com/dauphinsss">
-    <img src="https://github-profile-trophy.vercel.app/?username=dauphinsss&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=7" alt="GitHub Trophies"/>
+  <a href="https://github.com/Dauphinsss">
+    <img src="https://github-profile-trophy.vercel.app/?username=Dauphinsss&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=7" alt="GitHub Trophies"/>
   </a>
   
 </div>
