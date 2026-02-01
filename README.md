@@ -104,6 +104,15 @@ const marko = {
   <a href="https://github.com/Dauphinsss">
     <img src="https://github-profile-trophy.vercel.app/?username=Dauphinsss&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=7" alt="GitHub Trophies"/>
   </a>
+
+  <br/><br/>
+
+  <!-- Snake animation 🐍 -->
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Dauphinsss/Dauphinsss/output/github-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Dauphinsss/Dauphinsss/output/github-snake.svg" />
+    <img alt="snake eating my contributions" src="https://raw.githubusercontent.com/Dauphinsss/Dauphinsss/output/github-snake.svg" />
+  </picture>
   
 </div>
 
