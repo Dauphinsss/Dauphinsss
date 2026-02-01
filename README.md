@@ -1,7 +1,7 @@
 <div align="center">
   
   <!-- Header animado -->
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Hey!%20Soy%20Marko&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32&desc=Fullstack%20Developer&descSize=18&descAlignY=55"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Hey!%20Soy%20Marko%20%F0%9F%90%B3%F0%9F%92%A6&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32&desc=Fullstack%20Developer&descSize=18&descAlignY=55"/>
 
   <!-- Typing SVG -->
   <a href="https://git.io/typing-svg">
@@ -61,7 +61,7 @@ const marko = {
 ![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-### <img src="https://media.giphy.com/media/fYSnHlufseco8Fh93Z/giphy.gif" width="24"/> Bases de Datos & Cloud
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Card%20File%20Box.png" width="24"/> Bases de Datos & Cloud
 
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
@@ -89,14 +89,14 @@ const marko = {
 <div align="center">
   
   <a href="https://github.com/Dauphinsss">
-    <img height="180em" src="https://github-readme-stats.vercel.app/api?username=Dauphinsss&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0d1117&title_color=6ad3f7&icon_color=6ad3f7&text_color=c9d1d9"/>
-    <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Dauphinsss&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=6ad3f7&text_color=c9d1d9"/>
+    <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=Dauphinsss&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0d1117&title_color=6ad3f7&icon_color=6ad3f7&text_color=c9d1d9"/>
+    <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=Dauphinsss&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=6ad3f7&text_color=c9d1d9"/>
   </a>
 
 <br/><br/>
 
   <a href="https://github.com/Dauphinsss">
-    <img width="70%" src="https://streak-stats.demolab.com/?user=Dauphinsss&theme=tokyonight&hide_border=true&background=0D1117&stroke=6ad3f7&ring=6ad3f7&fire=ff6b6b&currStreakLabel=6ad3f7&sideLabels=6ad3f7&dates=8b949e" alt="GitHub Streak"/>
+    <img width="70%" src="https://github-readme-streak-stats-eight.vercel.app/?user=Dauphinsss&theme=tokyonight&hide_border=true&background=0D1117&stroke=6ad3f7&ring=6ad3f7&fire=ff6b6b&currStreakLabel=6ad3f7&sideLabels=6ad3f7&dates=8b949e" alt="GitHub Streak"/>
   </a>
 
 <br/><br/>
