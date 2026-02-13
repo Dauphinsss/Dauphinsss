@@ -1,5 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SocialLinks from '../components/SocialLinks';
+
+const profile = {
+  github: "https://github.com/Dauphinsss",
+  linkedin: "https://www.linkedin.com/in/dauphinsss/",
+  email: "marcosvelasquezvela123@gmail.com"
+};
 ---
 
 <Layout title="Dauphinsss | Minimal Portfolio">
@@ -31,44 +38,47 @@ import Layout from '../layouts/Layout.astro';
 
       <article class="card">
         <h2 data-i18n="linksTitle">Links</h2>
-        <ul>
-          <li><a href="#" data-i18n="github">GitHub (soon)</a></li>
-          <li><a href="#" data-i18n="linkedin">LinkedIn (soon)</a></li>
-          <li><a href="#" data-i18n="email">Email (soon)</a></li>
-        </ul>
+        <SocialLinks
+          copy={{ github: "GitHub", linkedin: "LinkedIn", email: "Email" }}
+          githubUrl={profile.github}
+          linkedinUrl={profile.linkedin}
+          email={profile.email}
+        />
       </article>
     </section>
 
     <footer class="footer" data-i18n="footer">
-      Basic starter version. We can expand this with projects and real links.
+      Thanks for stopping by.
     </footer>
   </main>
 
-  <script is:inline>
+  <script type="module">
+    import { gsap } from "gsap";
+
     const copy = {
       en: {
         label: "Portfolio",
         name: "Marcos Velasquez Vela",
-        bio: "Minimal black and white portfolio. Full links and projects coming soon.",
+        bio: "I build modern web products with focus on performance, clean design and real usability.",
         aboutTitle: "About",
-        aboutText: "Fullstack developer building clean, useful products with strong visual polish.",
+        aboutText: "I am Dauphinsss online. I enjoy turning ideas into simple experiences that people actually use.",
         linksTitle: "Links",
-        github: "GitHub (soon)",
-        linkedin: "LinkedIn (soon)",
-        email: "Email (soon)",
-        footer: "Basic starter version. We can expand this with projects and real links."
+        github: "GitHub",
+        linkedin: "LinkedIn",
+        email: "Email",
+        footer: "Thanks for stopping by."
       },
       es: {
         label: "Portafolio",
         name: "Marcos Velasquez Vela",
-        bio: "Portafolio minimalista en blanco y negro. Links y proyectos completos pronto.",
+        bio: "Construyo productos web modernos con foco en rendimiento, diseno limpio y utilidad real.",
         aboutTitle: "Sobre mi",
-        aboutText: "Desarrollador fullstack que crea productos limpios, utiles y con buen detalle visual.",
+        aboutText: "En internet soy Dauphinsss. Me gusta convertir ideas en experiencias simples que la gente si usa.",
         linksTitle: "Enlaces",
-        github: "GitHub (pronto)",
-        linkedin: "LinkedIn (pronto)",
-        email: "Email (pronto)",
-        footer: "Version inicial basica. La ampliamos con proyectos y links reales."
+        github: "GitHub",
+        linkedin: "LinkedIn",
+        email: "Email",
+        footer: "Gracias por pasar por aqui."
       }
     };
 
@@ -125,6 +135,43 @@ import Layout from '../layouts/Layout.astro';
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
       if (currentTheme === "auto") applyTheme("auto");
     });
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!reducedMotion) {
+      gsap.from(".topbar", {
+        y: -18,
+        autoAlpha: 0,
+        duration: 0.55,
+        ease: "power2.out"
+      });
+
+      gsap.from(".hero > *", {
+        y: 18,
+        autoAlpha: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        stagger: 0.08,
+        delay: 0.1
+      });
+
+      gsap.from(".card", {
+        y: 20,
+        autoAlpha: 0,
+        duration: 0.55,
+        ease: "power2.out",
+        stagger: 0.12,
+        delay: 0.25
+      });
+
+      gsap.from(".footer", {
+        y: 12,
+        autoAlpha: 0,
+        duration: 0.45,
+        ease: "power2.out",
+        delay: 0.45
+      });
+    }
   </script>
 </Layout>
 
@@ -147,6 +194,7 @@ import Layout from '../layouts/Layout.astro';
     font-size: 0.95rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    font-family: var(--font-display);
   }
 
   .controls {
@@ -179,8 +227,9 @@ import Layout from '../layouts/Layout.astro';
   h1 {
     margin: 0;
     font-size: clamp(2rem, 7vw, 3.7rem);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.01em;
     line-height: 0.98;
+    font-family: var(--font-display);
   }
 
   .subtitle {
@@ -221,7 +270,7 @@ import Layout from '../layouts/Layout.astro';
     line-height: 1.55;
   }
 
-  .card ul {
+  .social-list {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -229,10 +278,17 @@ import Layout from '../layouts/Layout.astro';
     gap: 0.5rem;
   }
 
-  .card a {
-    display: inline-block;
+  :global(.social-link) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     border-bottom: 1px solid var(--border);
     padding-bottom: 0.15rem;
+    transition: opacity 0.2s ease;
+  }
+
+  :global(.social-link:hover) {
+    opacity: 0.7;
   }
 
   .footer {

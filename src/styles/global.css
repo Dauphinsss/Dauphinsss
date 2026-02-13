@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @import "@fontsource-variable/geist";
 
+@font-face {
+  font-family: "Geist Pixel";
+  src: url("/fonts/GeistPixel-Square.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light dark;
   --bg: #ffffff;
@@ -8,6 +16,7 @@
   --muted: #595959;
   --border: #e8e8e8;
   --card: #f6f6f6;
+  --font-display: "Geist Pixel", "Geist Variable", "Segoe UI", sans-serif;
 }
 
 :root[data-theme="dark"] {
