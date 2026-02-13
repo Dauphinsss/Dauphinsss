@@ -1,0 +1,47 @@
+import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
+
+type Props = {
+  labels: {
+    github: string;
+    linkedin: string;
+    email: string;
+    whatsapp: string;
+  };
+  urls: {
+    github: string;
+    linkedin: string;
+    email: string;
+    whatsapp: string;
+  };
+};
+
+export default function SocialLinks({ labels, urls }: Props) {
+  return (
+    <ul className="social-list">
+      <li>
+        <a href={urls.github} className="social-link js-link" target="_blank" rel="noreferrer">
+          <Github size={16} strokeWidth={1.8} />
+          <span>{labels.github}</span>
+        </a>
+      </li>
+      <li>
+        <a href={urls.linkedin} className="social-link js-link" target="_blank" rel="noreferrer">
+          <Linkedin size={16} strokeWidth={1.8} />
+          <span>{labels.linkedin}</span>
+        </a>
+      </li>
+      <li>
+        <a href={`mailto:${urls.email}`} className="social-link js-link">
+          <Mail size={16} strokeWidth={1.8} />
+          <span>{labels.email}</span>
+        </a>
+      </li>
+      <li>
+        <a href={urls.whatsapp} className="social-link js-link" target="_blank" rel="noreferrer">
+          <MessageCircle size={16} strokeWidth={1.8} />
+          <span>{labels.whatsapp}</span>
+        </a>
+      </li>
+    </ul>
+  );
+}

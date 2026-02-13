@@ -1,9 +1,10 @@
 @import "tailwindcss";
 @import "@fontsource-variable/geist";
+@import "@fontsource/geist-mono";
 
 @font-face {
   font-family: "Geist Pixel";
-  src: url("/fonts/GeistPixel-Square.woff2") format("woff2");
+  src: url("/fonts/GeistPixel-Circle.woff2") format("woff2");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -16,7 +17,10 @@
   --muted: #595959;
   --border: #e8e8e8;
   --card: #f6f6f6;
+  --soft: #d8d8d8;
   --font-display: "Geist Pixel", "Geist Variable", "Segoe UI", sans-serif;
+  --font-body: "Geist Variable", "Geist", "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", "SFMono-Regular", "Menlo", monospace;
 }
 
 :root[data-theme="dark"] {
@@ -25,6 +29,7 @@
   --muted: #b3b3b3;
   --border: #242424;
   --card: #111111;
+  --soft: #1a1a1a;
 }
 
 *,
@@ -39,7 +44,7 @@ body {
   min-height: 100%;
   background: var(--bg);
   color: var(--fg);
-  font-family: "Geist Variable", "Geist", "Segoe UI", sans-serif;
+  font-family: var(--font-body);
 }
 
 a {
