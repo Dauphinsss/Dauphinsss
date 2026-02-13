@@ -1,11 +1,251 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Dauphinsss | Minimal Portfolio">
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand">Dauphinsss</div>
+      <div class="controls">
+        <button id="lang-toggle" class="control" type="button">EN</button>
+        <button id="theme-toggle" class="control" type="button">Auto</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <p class="label" data-i18n="label">Portfolio</p>
+      <h1 data-i18n="name">Marcos Velasquez Vela</h1>
+      <p class="subtitle">@Dauphinsss</p>
+      <p class="bio" data-i18n="bio">
+        Minimal black and white portfolio. Full links and projects coming soon.
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2 data-i18n="aboutTitle">About</h2>
+        <p data-i18n="aboutText">
+          Fullstack developer building clean, useful products with strong visual polish.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2 data-i18n="linksTitle">Links</h2>
+        <ul>
+          <li><a href="#" data-i18n="github">GitHub (soon)</a></li>
+          <li><a href="#" data-i18n="linkedin">LinkedIn (soon)</a></li>
+          <li><a href="#" data-i18n="email">Email (soon)</a></li>
+        </ul>
+      </article>
+    </section>
+
+    <footer class="footer" data-i18n="footer">
+      Basic starter version. We can expand this with projects and real links.
+    </footer>
+  </main>
+
+  <script is:inline>
+    const copy = {
+      en: {
+        label: "Portfolio",
+        name: "Marcos Velasquez Vela",
+        bio: "Minimal black and white portfolio. Full links and projects coming soon.",
+        aboutTitle: "About",
+        aboutText: "Fullstack developer building clean, useful products with strong visual polish.",
+        linksTitle: "Links",
+        github: "GitHub (soon)",
+        linkedin: "LinkedIn (soon)",
+        email: "Email (soon)",
+        footer: "Basic starter version. We can expand this with projects and real links."
+      },
+      es: {
+        label: "Portafolio",
+        name: "Marcos Velasquez Vela",
+        bio: "Portafolio minimalista en blanco y negro. Links y proyectos completos pronto.",
+        aboutTitle: "Sobre mi",
+        aboutText: "Desarrollador fullstack que crea productos limpios, utiles y con buen detalle visual.",
+        linksTitle: "Enlaces",
+        github: "GitHub (pronto)",
+        linkedin: "LinkedIn (pronto)",
+        email: "Email (pronto)",
+        footer: "Version inicial basica. La ampliamos con proyectos y links reales."
+      }
+    };
+
+    const langButton = document.getElementById("lang-toggle");
+    const themeButton = document.getElementById("theme-toggle");
+    const root = document.documentElement;
+
+    const savedLang = localStorage.getItem("lang");
+    const browserLang = (navigator.language || "en").toLowerCase().startsWith("es") ? "es" : "en";
+    let currentLang = savedLang === "en" || savedLang === "es" ? savedLang : browserLang;
+
+    const savedTheme = localStorage.getItem("theme");
+    let currentTheme =
+      savedTheme === "light" || savedTheme === "dark" || savedTheme === "auto" ? savedTheme : "auto";
+
+    function applyLanguage(lang) {
+      const dictionary = copy[lang] || copy.en;
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (key && dictionary[key]) el.textContent = dictionary[key];
+      });
+      root.lang = lang;
+      langButton.textContent = lang.toUpperCase();
+      localStorage.setItem("lang", lang);
+    }
+
+    function resolveTheme(theme) {
+      if (theme === "auto") {
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      return theme;
+    }
+
+    function applyTheme(theme) {
+      const resolved = resolveTheme(theme);
+      root.dataset.theme = resolved;
+      themeButton.textContent = theme === "auto" ? "Auto" : theme === "dark" ? "Dark" : "Light";
+      localStorage.setItem("theme", theme);
+    }
+
+    applyLanguage(currentLang);
+    applyTheme(currentTheme);
+
+    langButton?.addEventListener("click", () => {
+      currentLang = currentLang === "es" ? "en" : "es";
+      applyLanguage(currentLang);
+    });
+
+    themeButton?.addEventListener("click", () => {
+      currentTheme = currentTheme === "auto" ? "light" : currentTheme === "light" ? "dark" : "auto";
+      applyTheme(currentTheme);
+    });
+
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+      if (currentTheme === "auto") applyTheme("auto");
+    });
+  </script>
 </Layout>
+
+<style>
+  .shell {
+    width: min(860px, 92%);
+    margin: 0 auto;
+    padding: 2rem 0 3rem;
+  }
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.9rem;
+  }
+
+  .brand {
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .controls {
+    display: flex;
+    gap: 0.55rem;
+  }
+
+  .control {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    border-radius: 999px;
+    padding: 0.36rem 0.75rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+
+  .hero {
+    padding: 3.2rem 0 2.6rem;
+  }
+
+  .label {
+    margin: 0 0 0.85rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2rem, 7vw, 3.7rem);
+    letter-spacing: -0.03em;
+    line-height: 0.98;
+  }
+
+  .subtitle {
+    margin: 0.6rem 0 1rem;
+    font-size: 1rem;
+    color: var(--muted);
+  }
+
+  .bio {
+    margin: 0;
+    max-width: 56ch;
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+
+  .card {
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.1rem;
+  }
+
+  .card h2 {
+    margin: 0 0 0.85rem;
+    font-size: 1rem;
+    font-weight: 570;
+  }
+
+  .card p,
+  .card li {
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .card a {
+    display: inline-block;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.15rem;
+  }
+
+  .footer {
+    margin-top: 1.1rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 700px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
