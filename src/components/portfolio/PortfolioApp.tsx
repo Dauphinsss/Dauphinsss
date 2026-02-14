@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import CursorFollower from "./CursorFollower";
 import HeroSection from "./HeroSection";
 import InfoCards from "./InfoCards";
+import MusicWidget from "./MusicWidget";
 import TopBar from "./TopBar";
 import WorkShowcase from "./WorkShowcase";
 import { copy, profile, type Lang, type ThemeMode } from "../../data/portfolioContent";
@@ -108,6 +109,7 @@ export default function PortfolioApp() {
           {dictionary.footer}
         </footer>
       </main>
+      <MusicWidget />
     </>
   );
 }
