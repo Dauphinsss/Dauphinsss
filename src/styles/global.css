@@ -61,6 +61,28 @@ button {
   animation: music-eq 0.9s ease-in-out infinite;
 }
 
+.music-tap-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border: 1px solid color-mix(in srgb, var(--fg) 20%, transparent);
+  animation: tap-pulse 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.song-marquee {
+  overflow: hidden;
+}
+
+.song-marquee-track {
+  display: inline-flex;
+  gap: 1.5rem;
+  white-space: nowrap;
+}
+
+.song-marquee-track span {
+  display: inline-block;
+}
+
 @keyframes music-eq {
   0%,
   100% {
@@ -68,5 +90,39 @@ button {
   }
   50% {
     transform: scaleY(1.75);
+  }
+}
+
+@keyframes song-ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
+@keyframes tap-pulse {
+  0% {
+    opacity: 0.28;
+    transform: scale(0.985);
+  }
+  75% {
+    opacity: 0.04;
+    transform: scale(1.045);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+}
+
+@media (max-width: 768px) {
+  .song-marquee {
+    max-width: 140px;
+  }
+
+  .song-marquee-track {
+    animation: song-ticker 9s linear infinite;
   }
 }

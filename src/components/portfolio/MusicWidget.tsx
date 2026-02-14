@@ -80,9 +80,12 @@ export default function MusicWidget() {
             <p className="[font-family:var(--font-mono)] text-[0.65rem] tracking-[0.08em] text-[var(--muted)] uppercase">
               Now Playing
             </p>
-            <p className="truncate [font-family:var(--font-body)] text-xs leading-tight">
-              Home (Extended Version) - Undertale
-            </p>
+            <div className="song-marquee [font-family:var(--font-body)] text-xs leading-tight">
+              <div className="song-marquee-track">
+                <span>Home (Extended Version) - Undertale</span>
+                <span aria-hidden="true">Home (Extended Version) - Undertale</span>
+              </div>
+            </div>
             <a
               href={AUTHOR_URL}
               target="_blank"
@@ -108,7 +111,9 @@ export default function MusicWidget() {
         onClick={() => {
           void toggleMute();
         }}
-        className="group js-control flex h-12 w-12 cursor-pointer items-center justify-center border border-[var(--border)] bg-[color:color-mix(in_srgb,var(--bg)_95%,transparent)] backdrop-blur-md transition hover:-translate-y-px"
+        className={`group js-control relative flex h-12 w-12 cursor-pointer items-center justify-center border border-[var(--border)] bg-[color:color-mix(in_srgb,var(--bg)_95%,transparent)] backdrop-blur-md transition hover:-translate-y-px ${
+          isMuted ? "music-tap-pulse" : ""
+        }`}
         aria-label={isMuted ? "Unmute background music" : "Mute background music"}
         title={isMuted ? "Unmute" : "Mute"}
       >
@@ -123,6 +128,11 @@ export default function MusicWidget() {
             />
           ))}
         </span>
+        {isMuted ? (
+          <span className="pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap border border-[var(--border)] bg-[var(--bg)] px-1.5 py-0.5 [font-family:var(--font-mono)] text-[0.58rem] uppercase text-[var(--muted)]">
+            tap
+          </span>
+        ) : null}
       </button>
     </div>
   );
