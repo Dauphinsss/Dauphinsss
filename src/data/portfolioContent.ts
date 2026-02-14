@@ -21,6 +21,12 @@ export const copy = {
     aboutText:
       "Hi, I am Marko... I know a lot of things as a developer, so I am fullstack and, em..., mmm..., well, I want to get a job, so I made this portfolio to show what I can do :).",
     linksTitle: "Contact",
+    skillsTitle: "Skills",
+    skillsRows: [
+      "JavaScript · TypeScript · React · React Native · Expo · Next.js · Angular · Astro · HTML5 · CSS3 · TailwindCSS",
+      "Node.js · Express · NestJS · Rust · Python · PostgreSQL · MySQL · Prisma · Firebase",
+      "GSAP · Framer Motion · Tauri · Git · VS Code · Claude"
+    ],
     github: "GitHub",
     linkedin: "LinkedIn",
     email: "Email",
@@ -37,6 +43,12 @@ export const copy = {
     aboutText:
       "Hola, soy Marko... se muchas cosas como desarrollador, por eso soy fullstack y, em..., mmm..., bueno, quiero conseguir trabajo, asi que hice este portafolio para mostrar lo que puedo hacer :).",
     linksTitle: "Contacto",
+    skillsTitle: "Skills",
+    skillsRows: [
+      "JavaScript · TypeScript · React · React Native · Expo · Next.js · Angular · Astro · HTML5 · CSS3 · TailwindCSS",
+      "Node.js · Express · NestJS · Rust · Python · PostgreSQL · MySQL · Prisma · Firebase",
+      "GSAP · Framer Motion · Tauri · Git · VS Code · Claude"
+    ],
     github: "GitHub",
     linkedin: "LinkedIn",
     email: "Email",

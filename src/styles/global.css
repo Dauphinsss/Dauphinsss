@@ -73,6 +73,49 @@ button {
   overflow: hidden;
 }
 
+.skills-glow::before {
+  content: "";
+  position: absolute;
+  inset: -35% -10%;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, var(--fg) 8%, transparent) 0%,
+    transparent 62%
+  );
+  animation: skills-shimmer 9s linear infinite;
+}
+
+.skill-badge {
+  transition:
+    border-color 260ms ease,
+    transform 260ms ease,
+    background-color 260ms ease,
+    box-shadow 320ms ease;
+}
+
+.skill-badge:hover {
+  border-color: color-mix(in srgb, var(--fg) 52%, transparent);
+  transform: translateY(-2px) scale(1.015);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  box-shadow:
+    0 8px 18px color-mix(in srgb, var(--fg) 14%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--fg) 14%, transparent);
+}
+
+.skill-rgb-icon {
+  color: var(--fg);
+  opacity: 0.85;
+  animation: skill-color-flicker 8s ease-in-out infinite;
+}
+
+.skill-badge:hover .skill-rgb-icon {
+  animation-play-state: paused;
+  color: var(--skill-color, var(--fg));
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--skill-color, var(--fg)) 62%, transparent));
+  opacity: 1;
+}
+
 .song-marquee-track {
   display: inline-flex;
   gap: 1.5rem;
@@ -114,6 +157,53 @@ button {
   100% {
     opacity: 0;
     transform: scale(1.06);
+  }
+}
+
+@keyframes skills-shimmer {
+  0% {
+    transform: translateX(-6%) translateY(0%);
+    opacity: 0.22;
+  }
+  50% {
+    transform: translateX(6%) translateY(-2%);
+    opacity: 0.32;
+  }
+  100% {
+    transform: translateX(-6%) translateY(0%);
+    opacity: 0.22;
+  }
+}
+
+@keyframes skill-color-flicker {
+  0%,
+  22%,
+  48%,
+  72%,
+  100% {
+    color: var(--fg);
+    filter: none;
+    opacity: 0.84;
+  }
+  12% {
+    color: color-mix(in srgb, var(--skill-color, var(--fg)) 28%, var(--fg));
+    filter: drop-shadow(0 0 3px color-mix(in srgb, var(--skill-color, var(--fg)) 34%, transparent));
+    opacity: 0.9;
+  }
+  34% {
+    color: var(--skill-color, var(--fg));
+    filter: drop-shadow(0 0 7px color-mix(in srgb, var(--skill-color, var(--fg)) 52%, transparent));
+    opacity: 0.98;
+  }
+  58% {
+    color: color-mix(in srgb, var(--skill-color, var(--fg)) 34%, var(--fg));
+    filter: drop-shadow(0 0 4px color-mix(in srgb, var(--skill-color, var(--fg)) 38%, transparent));
+    opacity: 0.9;
+  }
+  84% {
+    color: var(--skill-color, var(--fg));
+    filter: drop-shadow(0 0 8px color-mix(in srgb, var(--skill-color, var(--fg)) 58%, transparent));
+    opacity: 1;
   }
 }
 

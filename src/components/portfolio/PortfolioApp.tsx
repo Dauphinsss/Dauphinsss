@@ -3,6 +3,7 @@ import CursorFollower from "./CursorFollower";
 import HeroSection from "./HeroSection";
 import InfoCards from "./InfoCards";
 import MusicWidget from "./MusicWidget";
+import SkillsCarousel from "./SkillsCarousel";
 import TopBar from "./TopBar";
 import WorkShowcase from "./WorkShowcase";
 import { copy, profile, type Lang, type ThemeMode } from "../../data/portfolioContent";
@@ -92,6 +93,7 @@ export default function PortfolioApp() {
         />
 
         <WorkShowcase title={dictionary.workTitle} items={dictionary.workItems} />
+        <SkillsCarousel title={dictionary.skillsTitle} rows={dictionary.skillsRows} />
 
         <InfoCards
           aboutTitle={dictionary.aboutTitle}
