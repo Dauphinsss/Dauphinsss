@@ -1,11 +1,10 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import CursorFollower from "./CursorFollower";
 import HeroSection from "./HeroSection";
 import InfoCards from "./InfoCards";
 import TopBar from "./TopBar";
 import WorkShowcase from "./WorkShowcase";
 import { copy, profile, type Lang, type ThemeMode } from "../../data/portfolioContent";
-import "./portfolio.css";
 
 function detectInitialLang(): Lang {
   if (typeof window === "undefined") return "en";
@@ -15,28 +14,17 @@ function detectInitialLang(): Lang {
 }
 
 function detectInitialTheme(): ThemeMode {
-  if (typeof window === "undefined") return "auto";
+  if (typeof window === "undefined") return "light";
   const stored = localStorage.getItem("theme");
-  if (stored === "auto" || stored === "light" || stored === "dark") return stored;
-  return "auto";
-}
-
-function resolveTheme(theme: ThemeMode): "light" | "dark" {
-  if (theme === "auto") {
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  }
-  return theme;
+  if (stored === "light" || stored === "dark") return stored;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
 export default function PortfolioApp() {
-  const [lang, setLang] = useState<Lang>("en");
-  const [theme, setTheme] = useState<ThemeMode>("auto");
+  const [lang, setLang] = useState<Lang>(() => detectInitialLang());
+  const [theme, setTheme] = useState<ThemeMode>(() => detectInitialTheme());
   const dictionary = useMemo(() => copy[lang], [lang]);
-
-  useEffect(() => {
-    setLang(detectInitialLang());
-    setTheme(detectInitialTheme());
-  }, []);
+  const mainRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -44,25 +32,8 @@ export default function PortfolioApp() {
   }, [lang]);
 
   useEffect(() => {
-    const apply = (mode: ThemeMode) => {
-      document.documentElement.dataset.theme = resolveTheme(mode);
-    };
-
-    apply(theme);
+    document.documentElement.dataset.theme = theme;
     localStorage.setItem("theme", theme);
-
-    const mql = window.matchMedia("(prefers-color-scheme: dark)");
-    const onChange = () => {
-      if (theme === "auto") apply("auto");
-    };
-
-    if (mql.addEventListener) mql.addEventListener("change", onChange);
-    else mql.addListener(onChange);
-
-    return () => {
-      if (mql.removeEventListener) mql.removeEventListener("change", onChange);
-      else mql.removeListener(onChange);
-    };
   }, [theme]);
 
   useEffect(() => {
@@ -70,32 +41,37 @@ export default function PortfolioApp() {
     if (reducedMotion) return;
 
     let cancelled = false;
+    let cleanup = () => {};
     import("gsap").then(({ gsap }) => {
-      if (cancelled) return;
-      const tl = gsap.timeline();
-      tl.from(".js-topbar", { y: -16, autoAlpha: 0, duration: 0.45, ease: "power2.out" })
-        .from(".js-control", { y: -8, autoAlpha: 0, duration: 0.3, stagger: 0.06 }, "-=0.25")
-        .from(".js-hero > *", { y: 16, autoAlpha: 0, duration: 0.5, stagger: 0.07 }, "-=0.05")
-        .from(".js-work", { y: 18, autoAlpha: 0, duration: 0.55 }, "-=0.2")
-        .from(".work-line", { y: 10, autoAlpha: 0, duration: 0.35, stagger: 0.06 }, "-=0.25")
-        .from(".js-cards .card", { y: 18, autoAlpha: 0, duration: 0.5, stagger: 0.1 }, "-=0.2")
-        .from(".js-link", { x: -8, autoAlpha: 0, duration: 0.35, stagger: 0.05 }, "-=0.25")
-        .from(".js-footer", { y: 8, autoAlpha: 0, duration: 0.35 }, "-=0.2");
+      if (cancelled || !mainRef.current) return;
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline();
+        tl.from(".js-topbar", { y: -16, opacity: 0, duration: 0.45, ease: "power2.out", clearProps: "all" })
+          .from(".js-control", { y: -8, opacity: 0, duration: 0.3, stagger: 0.06, clearProps: "all" }, "-=0.25")
+          .from(".js-hero > *", { y: 16, opacity: 0, duration: 0.5, stagger: 0.07, clearProps: "all" }, "-=0.05")
+          .from(".js-work", { y: 18, opacity: 0, duration: 0.55, clearProps: "all" }, "-=0.2")
+          .from(".work-line", { y: 10, opacity: 0, duration: 0.35, stagger: 0.06, clearProps: "all" }, "-=0.25")
+          .from(".js-cards .card", { y: 18, opacity: 0, duration: 0.5, stagger: 0.1, clearProps: "all" }, "-=0.2")
+          .from(".js-link", { x: -8, opacity: 0, duration: 0.35, stagger: 0.05, clearProps: "all" }, "-=0.25")
+          .from(".js-footer", { y: 8, opacity: 0, duration: 0.35, clearProps: "all" }, "-=0.2");
+      }, mainRef);
+
+      cleanup = () => ctx.revert();
     });
 
     return () => {
       cancelled = true;
+      cleanup();
     };
-  }, [lang]);
+  }, []);
 
   const toggleLang = () => setLang((prev) => (prev === "es" ? "en" : "es"));
-  const toggleTheme = () =>
-    setTheme((prev) => (prev === "auto" ? "light" : prev === "light" ? "dark" : "auto"));
+  const toggleTheme = () => setTheme((prev) => (prev === "light" ? "dark" : "light"));
 
   return (
     <>
       <CursorFollower />
-      <main className="shell">
+      <main ref={mainRef} className="mx-auto w-[min(920px,92%)] py-8 pb-12 [font-family:var(--font-body)]">
         <TopBar
           handle={profile.handle}
           lang={lang}
@@ -120,8 +96,11 @@ export default function PortfolioApp() {
           }}
         />
 
-        <footer className="footer js-footer">{dictionary.footer}</footer>
+        <footer className="js-footer mt-4 border-t border-[var(--border)] pt-4 [font-family:var(--font-mono)] text-sm text-[var(--muted)]">
+          {dictionary.footer}
+        </footer>
       </main>
     </>
   );
 }
+

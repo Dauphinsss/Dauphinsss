@@ -17,27 +17,45 @@ type Props = {
 
 export default function SocialLinks({ labels, urls }: Props) {
   return (
-    <ul className="social-list">
+    <ul className="m-0 grid list-none gap-2 p-0">
       <li>
-        <a href={urls.github} className="social-link js-link" target="_blank" rel="noreferrer">
+        <a
+          href={urls.github}
+          className="js-link inline-flex items-center gap-2 border-b border-[var(--border)] pb-0.5 transition duration-200 hover:opacity-70"
+          target="_blank"
+          rel="noreferrer"
+        >
           <Github size={16} strokeWidth={1.8} />
           <span>{labels.github}</span>
         </a>
       </li>
       <li>
-        <a href={urls.linkedin} className="social-link js-link" target="_blank" rel="noreferrer">
+        <a
+          href={urls.linkedin}
+          className="js-link inline-flex items-center gap-2 border-b border-[var(--border)] pb-0.5 transition duration-200 hover:opacity-70"
+          target="_blank"
+          rel="noreferrer"
+        >
           <Linkedin size={16} strokeWidth={1.8} />
           <span>{labels.linkedin}</span>
         </a>
       </li>
       <li>
-        <a href={`mailto:${urls.email}`} className="social-link js-link">
+        <a
+          href={`mailto:${urls.email}`}
+          className="js-link inline-flex items-center gap-2 border-b border-[var(--border)] pb-0.5 transition duration-200 hover:opacity-70"
+        >
           <Mail size={16} strokeWidth={1.8} />
           <span>{labels.email}</span>
         </a>
       </li>
       <li>
-        <a href={urls.whatsapp} className="social-link js-link" target="_blank" rel="noreferrer">
+        <a
+          href={urls.whatsapp}
+          className="js-link inline-flex items-center gap-2 border-b border-[var(--border)] pb-0.5 transition duration-200 hover:opacity-70"
+          target="_blank"
+          rel="noreferrer"
+        >
           <MessageCircle size={16} strokeWidth={1.8} />
           <span>{labels.whatsapp}</span>
         </a>

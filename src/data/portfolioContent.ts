@@ -1,5 +1,5 @@
 export type Lang = "en" | "es";
-export type ThemeMode = "auto" | "light" | "dark";
+export type ThemeMode = "light" | "dark";
 
 export const profile = {
   name: "Marcos Velasquez Vela",
