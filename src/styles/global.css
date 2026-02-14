@@ -106,7 +106,9 @@ button {
 .skill-rgb-icon {
   color: var(--fg);
   opacity: 0.85;
-  animation: skill-color-flicker 8s ease-in-out infinite;
+  animation: skill-color-flicker var(--flicker-duration, 12s) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: var(--flicker-delay, 0s);
+  will-change: color, filter, opacity;
 }
 
 .skill-badge:hover .skill-rgb-icon {
@@ -177,35 +179,38 @@ button {
 
 @keyframes skill-color-flicker {
   0%,
-  22%,
-  48%,
-  72%,
+  18%,
+  52%,
+  86%,
   100% {
     color: var(--fg);
     filter: none;
-    opacity: 0.84;
+    opacity: 0.82;
   }
-  12% {
-    color: color-mix(in srgb, var(--skill-color, var(--fg)) 28%, var(--fg));
-    filter: drop-shadow(0 0 3px color-mix(in srgb, var(--skill-color, var(--fg)) 34%, transparent));
-    opacity: 0.9;
+  24%,
+  33% {
+    color: color-mix(in srgb, var(--skill-color, var(--fg)) 68%, var(--fg));
+    filter: drop-shadow(0 0 4px color-mix(in srgb, var(--skill-color, var(--fg)) 34%, transparent));
+    opacity: 0.93;
   }
-  34% {
+  37% {
     color: var(--skill-color, var(--fg));
-    filter: drop-shadow(0 0 7px color-mix(in srgb, var(--skill-color, var(--fg)) 52%, transparent));
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--skill-color, var(--fg)) 48%, transparent));
     opacity: 0.98;
   }
-  58% {
-    color: color-mix(in srgb, var(--skill-color, var(--fg)) 34%, var(--fg));
-    filter: drop-shadow(0 0 4px color-mix(in srgb, var(--skill-color, var(--fg)) 38%, transparent));
-    opacity: 0.9;
+  64%,
+  72% {
+    color: color-mix(in srgb, var(--skill-color, var(--fg)) 72%, var(--fg));
+    filter: drop-shadow(0 0 5px color-mix(in srgb, var(--skill-color, var(--fg)) 40%, transparent));
+    opacity: 0.95;
   }
-  84% {
+  76% {
     color: var(--skill-color, var(--fg));
-    filter: drop-shadow(0 0 8px color-mix(in srgb, var(--skill-color, var(--fg)) 58%, transparent));
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--skill-color, var(--fg)) 50%, transparent));
     opacity: 1;
   }
 }
+
 
 @media (max-width: 768px) {
   .song-marquee {

@@ -44,6 +44,15 @@ type SkillIcon = {
   color: string;
 };
 
+function hashSeed(value: string) {
+  let hash = 2166136261;
+  for (let i = 0; i < value.length; i += 1) {
+    hash ^= value.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
 const iconMap: Record<string, SkillIcon> = {
   JavaScript: { Icon: SiJavascript, color: "#F7DF1E" },
   TypeScript: { Icon: SiTypescript, color: "#3178C6" },
@@ -73,11 +82,13 @@ const iconMap: Record<string, SkillIcon> = {
   Claude: { Icon: SiClaude, color: "#D97706" }
 };
 
-function SkillChip({ skill }: { skill: string }) {
+function SkillChip({ skill, chipId }: { skill: string; chipId: string }) {
   const icon = iconMap[skill];
   const color = icon?.color ?? "#ffffff";
   const GlowIcon = icon?.Icon;
-  const pulseDelay = `${(skill.length % 9) * 0.35}s`;
+  const seed = hashSeed(chipId);
+  const flickerDuration = `${(10.5 + (seed % 420) / 100).toFixed(2)}s`;
+  const flickerDelay = `-${(((seed >> 8) % 900) / 100).toFixed(2)}s`;
 
   return (
     <span className="skill-badge group/badge relative mr-3 inline-flex items-center gap-2 border border-[var(--border)] bg-[color:color-mix(in_srgb,var(--bg)_96%,transparent)] px-3.5 py-2">
@@ -85,7 +96,11 @@ function SkillChip({ skill }: { skill: string }) {
         <GlowIcon
           aria-hidden="true"
           className="skill-rgb-icon h-4 w-4"
-          style={{ ["--skill-color" as string]: color, animationDelay: pulseDelay }}
+          style={{
+            ["--skill-color" as string]: color,
+            ["--flicker-duration" as string]: flickerDuration,
+            ["--flicker-delay" as string]: flickerDelay
+          }}
         />
       ) : (
         <span className="h-1.5 w-1.5 rounded-full bg-[var(--muted)]" />
@@ -149,12 +164,12 @@ function InfiniteRow({ skills, baseVelocity }: RowProps) {
       >
         <div ref={setRef} className="inline-flex">
           {longSkills.map((skill) => (
-            <SkillChip key={`a-${skill.id}`} skill={skill.label} />
+            <SkillChip key={`a-${skill.id}`} skill={skill.label} chipId={`a-${skill.id}`} />
           ))}
         </div>
         <div className="inline-flex" aria-hidden="true">
           {longSkills.map((skill) => (
-            <SkillChip key={`b-${skill.id}`} skill={skill.label} />
+            <SkillChip key={`b-${skill.id}`} skill={skill.label} chipId={`b-${skill.id}`} />
           ))}
         </div>
       </motion.div>
