@@ -11,11 +11,13 @@ type Props = {
 
 export default function TopBar({ handle, lang, theme, onToggleLang, onToggleTheme }: Props) {
   return (
-    <header className="js-topbar flex items-center justify-between border-b border-[var(--border)] pb-4">
-      <div className="[font-family:var(--font-display)] text-[0.95rem] tracking-[0.05em] uppercase">{handle}</div>
-      <div className="flex gap-[0.55rem]">
+    <header className="js-topbar sticky top-2 z-20 mb-2 flex items-center justify-between gap-2 border border-[var(--border)] bg-[color:color-mix(in_srgb,var(--bg)_92%,transparent)] px-3 py-2 backdrop-blur-md max-[768px]:flex-col max-[768px]:items-stretch">
+      <div className="[font-family:var(--font-display)] text-[0.95rem] tracking-[0.08em] uppercase max-[768px]:text-center">
+        {handle}
+      </div>
+      <div className="flex gap-[0.55rem] max-[768px]:grid max-[768px]:grid-cols-2">
         <button
-          className="js-control inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--bg)] px-3 py-1.5 text-[0.8rem] text-[var(--fg)] transition duration-200 hover:-translate-y-px hover:opacity-90"
+          className="js-control inline-flex cursor-pointer items-center justify-center gap-1.5 border border-[var(--border)] bg-[var(--bg)] px-3 py-1.5 text-[0.78rem] text-[var(--fg)] transition duration-300 hover:-translate-y-px hover:bg-[var(--fg)] hover:text-[var(--bg)] max-[768px]:w-full"
           type="button"
           onClick={onToggleLang}
           aria-label="Change language"
@@ -24,7 +26,7 @@ export default function TopBar({ handle, lang, theme, onToggleLang, onToggleThem
           <span>{lang.toUpperCase()}</span>
         </button>
         <button
-          className="js-control inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--bg)] px-3 py-1.5 text-[0.8rem] text-[var(--fg)] transition duration-200 hover:-translate-y-px hover:opacity-90"
+          className="js-control inline-flex cursor-pointer items-center justify-center gap-1.5 border border-[var(--border)] bg-[var(--bg)] px-3 py-1.5 text-[0.78rem] text-[var(--fg)] transition duration-300 hover:-translate-y-px hover:bg-[var(--fg)] hover:text-[var(--bg)] max-[768px]:w-full"
           type="button"
           onClick={onToggleTheme}
           aria-label="Change theme"
@@ -36,4 +38,3 @@ export default function TopBar({ handle, lang, theme, onToggleLang, onToggleThem
     </header>
   );
 }
-

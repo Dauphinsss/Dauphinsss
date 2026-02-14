@@ -71,7 +71,10 @@ export default function PortfolioApp() {
   return (
     <>
       <CursorFollower />
-      <main ref={mainRef} className="mx-auto w-[min(920px,92%)] py-8 pb-12 [font-family:var(--font-body)]">
+      <main
+        ref={mainRef}
+        className="relative mx-auto w-[min(1120px,94%)] overflow-x-hidden py-6 pb-14 [font-family:var(--font-body)] before:pointer-events-none before:absolute before:inset-0 before:bg-[linear-gradient(180deg,color-mix(in_srgb,var(--fg)_2%,transparent)_0%,transparent_24%,transparent_76%,color-mix(in_srgb,var(--fg)_2%,transparent)_100%)] before:opacity-80 after:pointer-events-none after:absolute after:-top-[40%] after:left-1/2 after:h-[140%] after:w-[140%] after:-translate-x-1/2 after:rounded-full after:border after:border-[color:color-mix(in_srgb,var(--fg)_10%,transparent)]"
+      >
         <TopBar
           handle={profile.handle}
           lang={lang}
@@ -80,7 +83,13 @@ export default function PortfolioApp() {
           onToggleTheme={toggleTheme}
         />
 
-        <HeroSection label={dictionary.label} name={dictionary.name} handle={profile.handle} bio={dictionary.bio} />
+        <HeroSection
+          label={dictionary.label}
+          name={profile.name}
+          handle={profile.handle}
+          bio={dictionary.bio}
+          signature={dictionary.signature}
+        />
 
         <WorkShowcase title={dictionary.workTitle} items={dictionary.workItems} />
 

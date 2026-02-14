@@ -13,23 +13,23 @@
 :root {
   color-scheme: light dark;
   --bg: #ffffff;
-  --fg: #0a0a0a;
-  --muted: #595959;
-  --border: #e8e8e8;
-  --card: #f6f6f6;
-  --soft: #d8d8d8;
+  --fg: #000000;
+  --muted: #4a4a4a;
+  --border: #d9d9d9;
+  --card: #f3f3f3;
+  --soft: #cdcdcd;
   --font-display: "Geist Pixel", "Geist Variable", "Segoe UI", sans-serif;
   --font-body: "Geist Variable", "Geist", "Segoe UI", sans-serif;
   --font-mono: "Geist Mono", "SFMono-Regular", "Menlo", monospace;
 }
 
 :root[data-theme="dark"] {
-  --bg: #0a0a0a;
-  --fg: #f5f5f5;
-  --muted: #b3b3b3;
-  --border: #242424;
-  --card: #111111;
-  --soft: #1a1a1a;
+  --bg: #020202;
+  --fg: #ffffff;
+  --muted: #bdbdbd;
+  --border: #2b2b2b;
+  --card: #101010;
+  --soft: #1e1e1e;
 }
 
 *,
@@ -42,6 +42,7 @@ html,
 body {
   margin: 0;
   min-height: 100%;
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-body);

@@ -1,29 +1,86 @@
+import { wrap } from "@motionone/utils";
+import { useRef } from "react";
+import {
+  motion,
+  useAnimationFrame,
+  useMotionValue,
+  useScroll,
+  useSpring,
+  useTransform,
+  useVelocity
+} from "framer-motion";
+
 type Props = {
   title: string;
   items: readonly string[];
 };
 
-export default function WorkShowcase({ title, items }: Props) {
+type ParallaxRowProps = {
+  text: string;
+  baseVelocity: number;
+};
+
+function ParallaxRow({ text, baseVelocity }: ParallaxRowProps) {
+  const baseX = useMotionValue(0);
+  const { scrollY } = useScroll();
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, { damping: 50, stiffness: 400 });
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 4], { clamp: false });
+  const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
+  const directionFactor = useRef(1);
+
+  useAnimationFrame((_, delta) => {
+    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+
+    if (velocityFactor.get() < 0) directionFactor.current = -1;
+    else if (velocityFactor.get() > 0) directionFactor.current = 1;
+
+    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+    baseX.set(baseX.get() + moveBy);
+  });
+
   return (
-    <section className="js-work relative mb-4 min-h-[320px] overflow-hidden rounded-[18px] border border-[var(--border)] bg-[linear-gradient(180deg,var(--bg)_0%,color-mix(in_srgb,var(--bg)_84%,var(--soft))_100%)] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_center,color-mix(in_srgb,var(--fg)_30%,transparent)_1.25px,transparent_1.75px)] before:bg-[length:10px_10px] before:opacity-[0.38] max-[740px]:min-h-[260px]">
-      <p className="absolute top-4 left-[1.1rem] z-[2] m-0 [font-family:var(--font-mono)] text-[0.84rem] tracking-[0.04em] text-[var(--muted)] uppercase">
-        {title}
-      </p>
-      <div
-        className="absolute bottom-[-22px] left-[46%] z-[1] -translate-x-[44%] [font-family:var(--font-display)] leading-[0.88] tracking-[0.03em] max-[740px]:bottom-[-6px] max-[740px]:left-1/2 max-[740px]:-translate-x-[48%]"
-        aria-hidden="true"
+    <div className="overflow-hidden whitespace-nowrap">
+      <motion.div
+        style={{ x }}
+        className="[font-family:var(--font-display)] text-[clamp(2rem,7.5vw,4.8rem)] leading-[0.88] tracking-[0.06em] uppercase"
       >
-        <p className="work-line m-0 text-[clamp(3.9rem,10.5vw,7.9rem)] text-[color:color-mix(in_srgb,var(--fg)_28%,transparent)]">
-          {items[0] ?? ""}
-        </p>
-        <p className="work-line m-0 text-[clamp(3.9rem,10.5vw,7.9rem)] text-[color:color-mix(in_srgb,var(--fg)_28%,transparent)]">
-          {items[1] ?? ""}
-        </p>
-        <p className="work-line m-0 text-[clamp(3.9rem,10.5vw,7.9rem)] text-[var(--fg)] [text-shadow:0_0_16px_color-mix(in_srgb,var(--fg)_22%,transparent)]">
-          {items[2] ?? ""}
-        </p>
-      </div>
-    </section>
+        <span className="mr-8 inline-block text-[color:color-mix(in_srgb,var(--fg)_26%,transparent)]">{text}</span>
+        <span className="mr-8 inline-block text-[color:color-mix(in_srgb,var(--fg)_42%,transparent)]">{text}</span>
+        <span className="mr-8 inline-block text-[var(--fg)]">{text}</span>
+        <span className="mr-8 inline-block text-[color:color-mix(in_srgb,var(--fg)_42%,transparent)]">{text}</span>
+      </motion.div>
+    </div>
   );
 }
 
+export default function WorkShowcase({ title, items }: Props) {
+  const one = items[0] ?? "VISUAL";
+  const two = items[1] ?? "PULSE";
+  const three = items[2] ?? "SALMON";
+
+  return (
+    <section className="js-work relative mt-8 mb-6 overflow-hidden border border-[var(--border)] bg-[var(--bg)] py-8 max-[768px]:py-6">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,color-mix(in_srgb,var(--fg)_34%,transparent)_1px,transparent_1.7px)] bg-[length:11px_11px] opacity-35" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,color-mix(in_srgb,var(--fg)_7%,transparent)_50%,transparent_100%)]" />
+
+      <p className="relative z-[2] mb-6 ml-4 [font-family:var(--font-mono)] text-[0.82rem] tracking-[0.1em] text-[var(--muted)] uppercase max-[768px]:mb-4">
+        {title}
+      </p>
+      <span className="pointer-events-none absolute top-4 right-4 z-[2] [font-family:var(--font-display)] text-[clamp(1.1rem,3.4vw,2rem)] leading-none tracking-[0.08em] text-[var(--fg)] opacity-65">
+        SALMON
+      </span>
+
+      <div className="relative z-[2] space-y-1.5">
+        <ParallaxRow text={one} baseVelocity={-4} />
+        <ParallaxRow text={two} baseVelocity={4} />
+        <ParallaxRow text={three} baseVelocity={-3.4} />
+      </div>
+
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-[2] w-16 bg-[linear-gradient(90deg,var(--bg),transparent)]" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-[2] w-16 bg-[linear-gradient(270deg,var(--bg),transparent)]" />
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-[2] h-16 bg-[linear-gradient(0deg,var(--bg),transparent)]" />
+      <div className="pointer-events-none absolute top-0 left-0 right-0 z-[2] h-12 bg-[linear-gradient(180deg,var(--bg),transparent)]" />
+    </section>
+  );
+}

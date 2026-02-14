@@ -21,7 +21,7 @@ export default function SocialLinks({ labels, urls }: Props) {
       <li>
         <a
           href={urls.github}
-          className="js-link inline-flex items-center gap-2 border-b border-[var(--border)] pb-0.5 transition duration-200 hover:opacity-70"
+          className="js-link inline-flex items-center gap-2 border-b border-[var(--border)] pb-0.5 [font-family:var(--font-mono)] text-[0.9rem] transition duration-300 hover:-translate-y-px hover:border-[var(--fg)]"
           target="_blank"
           rel="noreferrer"
         >
@@ -32,7 +32,7 @@ export default function SocialLinks({ labels, urls }: Props) {
       <li>
         <a
           href={urls.linkedin}
-          className="js-link inline-flex items-center gap-2 border-b border-[var(--border)] pb-0.5 transition duration-200 hover:opacity-70"
+          className="js-link inline-flex items-center gap-2 border-b border-[var(--border)] pb-0.5 [font-family:var(--font-mono)] text-[0.9rem] transition duration-300 hover:-translate-y-px hover:border-[var(--fg)]"
           target="_blank"
           rel="noreferrer"
         >
@@ -43,7 +43,7 @@ export default function SocialLinks({ labels, urls }: Props) {
       <li>
         <a
           href={`mailto:${urls.email}`}
-          className="js-link inline-flex items-center gap-2 border-b border-[var(--border)] pb-0.5 transition duration-200 hover:opacity-70"
+          className="js-link inline-flex items-center gap-2 border-b border-[var(--border)] pb-0.5 [font-family:var(--font-mono)] text-[0.9rem] transition duration-300 hover:-translate-y-px hover:border-[var(--fg)]"
         >
           <Mail size={16} strokeWidth={1.8} />
           <span>{labels.email}</span>
@@ -52,7 +52,7 @@ export default function SocialLinks({ labels, urls }: Props) {
       <li>
         <a
           href={urls.whatsapp}
-          className="js-link inline-flex items-center gap-2 border-b border-[var(--border)] pb-0.5 transition duration-200 hover:opacity-70"
+          className="js-link inline-flex items-center gap-2 border-b border-[var(--border)] pb-0.5 [font-family:var(--font-mono)] text-[0.9rem] transition duration-300 hover:-translate-y-px hover:border-[var(--fg)]"
           target="_blank"
           rel="noreferrer"
         >

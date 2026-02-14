@@ -2,7 +2,7 @@ export type Lang = "en" | "es";
 export type ThemeMode = "light" | "dark";
 
 export const profile = {
-  name: "Marcos Velasquez Vela",
+  name: "Marcos Velaquez Vela",
   handle: "Dauphinsss",
   email: "marcosvelasquezvela123@gmail.com",
   github: "https://github.com/Dauphinsss",
@@ -12,35 +12,37 @@ export const profile = {
 
 export const copy = {
   en: {
-    label: "Portfolio",
-    name: "Marcos Velasquez Vela",
-    bio: "Fullstack developer focused on building clean products, useful experiences, and motion-rich interfaces.",
-    workTitle: "What I Build",
-    workItems: ["Web Apps", "Frontend Motion", "Fullstack Systems"],
+    label: "Digital Playground",
+    name: "Marcos Velaquez Vela",
+    bio: "Web, mobile, and desktop developer. I design with motion and build with precision.",
+    signature: "Made with a lot of <3 and caffeine.",
+    workTitle: "Visual Pulse",
+    workItems: ["VISUAL", "PULSE", "SALMON"],
     aboutTitle: "About",
     aboutText:
-      "I am Dauphinsss online. I like to turn ideas into products that feel simple, fast, and human.",
+      "People call me Marko. Online, I am Dauphinsss. React, Astro, Node, and GSAP are my main language.",
     linksTitle: "Contact",
     github: "GitHub",
     linkedin: "LinkedIn",
     email: "Email",
     whatsapp: "WhatsApp",
-    footer: "Open to collaborations and freelance work."
+    footer: "Open to collaborations, commissions, and bold ideas."
   },
   es: {
-    label: "Portafolio",
-    name: "Marcos Velasquez Vela",
-    bio: "Desarrollador fullstack enfocado en crear productos limpios, experiencias utiles e interfaces con movimiento.",
-    workTitle: "Lo Que Construyo",
-    workItems: ["Web Apps", "Animacion Frontend", "Sistemas Fullstack"],
+    label: "Playground Digital",
+    name: "Marcos Velaquez Vela",
+    bio: "Desarrollador web, mobile y desktop. Diseno con movimiento y construyo con precision.",
+    signature: "Hecho con mucho <3 y cafeina.",
+    workTitle: "Pulso Visual",
+    workItems: ["PULSO", "VISUAL", "SALMON"],
     aboutTitle: "Sobre Mi",
     aboutText:
-      "En internet soy Dauphinsss. Me gusta convertir ideas en productos simples, rapidos y humanos.",
+      "Todos me dicen Marko. En internet soy Dauphinsss. React, Astro, Node y GSAP son mi idioma principal.",
     linksTitle: "Contacto",
     github: "GitHub",
     linkedin: "LinkedIn",
     email: "Email",
     whatsapp: "WhatsApp",
-    footer: "Disponible para colaboraciones y trabajo freelance."
+    footer: "Disponible para colaboraciones, comisiones e ideas audaces."
   }
 } as const;
