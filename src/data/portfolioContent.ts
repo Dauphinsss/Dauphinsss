@@ -14,35 +14,33 @@ export const copy = {
   en: {
     label: "Digital Playground",
     name: "Marcos Velaquez Vela",
-    bio: "Web, mobile, and desktop developer. I design with motion and build with precision.",
-    signature: "Made with a lot of <3 and caffeine.",
+    bio: "Web, mobile, and desktop developer... and much more, I think..., I am good, I promise.",
     workTitle: "Visual Pulse",
-    workItems: ["VISUAL", "PULSE", "SALMON"],
+    workItems: ["THIS SHOULD", "REPRESENT ME", "FOR REAL"],
     aboutTitle: "About",
     aboutText:
-      "People call me Marko. Online, I am Dauphinsss. React, Astro, Node, and GSAP are my main language.",
+      "Hi, I am Marko... I know a lot of things as a developer, so I am fullstack and, em..., mmm..., well, I want to get a job, so I made this portfolio to show what I can do :).",
     linksTitle: "Contact",
     github: "GitHub",
     linkedin: "LinkedIn",
     email: "Email",
     whatsapp: "WhatsApp",
-    footer: "Open to collaborations, commissions, and bold ideas."
+    footer: "Made with a lot of <3 and caffeine."
   },
   es: {
     label: "Playground Digital",
     name: "Marcos Velaquez Vela",
-    bio: "Desarrollador web, mobile y desktop. Diseno con movimiento y construyo con precision.",
-    signature: "Hecho con mucho <3 y cafeina.",
+    bio: "Desarrollador web, mobile y desktop... y mucho mas, creo..., soy bueno, lo prometo.",
     workTitle: "Pulso Visual",
-    workItems: ["PULSO", "VISUAL", "SALMON"],
+    workItems: ["ESTO DEBERIA", "REPRESENTARME", "DE VERDAD"],
     aboutTitle: "Sobre Mi",
     aboutText:
-      "Todos me dicen Marko. En internet soy Dauphinsss. React, Astro, Node y GSAP son mi idioma principal.",
+      "Hola, soy Marko... se muchas cosas como desarrollador, por eso soy fullstack y, em..., mmm..., bueno, quiero conseguir trabajo, asi que hice este portafolio para mostrar lo que puedo hacer :).",
     linksTitle: "Contacto",
     github: "GitHub",
     linkedin: "LinkedIn",
     email: "Email",
     whatsapp: "WhatsApp",
-    footer: "Disponible para colaboraciones, comisiones e ideas audaces."
+    footer: "Hecho con mucho <3 y cafeina."
   }
 } as const;

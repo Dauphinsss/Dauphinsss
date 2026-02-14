@@ -5,10 +5,9 @@ type Props = {
   name: string;
   handle: string;
   bio: string;
-  signature: string;
 };
 
-export default function HeroSection({ label, name, handle, bio, signature }: Props) {
+export default function HeroSection({ label, name, handle, bio }: Props) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const frontRef = useRef<HTMLHeadingElement | null>(null);
   const backRef = useRef<HTMLParagraphElement | null>(null);
@@ -85,9 +84,6 @@ export default function HeroSection({ label, name, handle, bio, signature }: Pro
       </p>
       <p className="relative z-[1] m-0 max-w-[66ch] text-[1.03rem] leading-[1.62] text-[color:color-mix(in_srgb,var(--fg)_90%,var(--bg))] max-[768px]:text-[0.94rem] max-[768px]:leading-[1.52]">
         {bio}
-      </p>
-      <p className="js-control relative z-[1] mt-6 inline-flex border border-[var(--border)] px-3 py-1.5 [font-family:var(--font-mono)] text-[0.78rem] tracking-[0.08em] uppercase transition duration-300 hover:-translate-y-px hover:bg-[var(--fg)] hover:text-[var(--bg)] max-[768px]:mt-5 max-[768px]:text-[0.72rem]">
-        {signature}
       </p>
     </section>
   );

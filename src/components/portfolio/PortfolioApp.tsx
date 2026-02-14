@@ -88,7 +88,6 @@ export default function PortfolioApp() {
           name={profile.name}
           handle={profile.handle}
           bio={dictionary.bio}
-          signature={dictionary.signature}
         />
 
         <WorkShowcase title={dictionary.workTitle} items={dictionary.workItems} />
