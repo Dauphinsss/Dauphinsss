@@ -1,21 +1,13 @@
-<!-- ╔══════════════════════════════════════════════════════════════════╗ -->
-<!-- ║  MARCOS VELAQUEZ VELA · @Dauphinsss                                ║ -->
-<!-- ║  Identidad del portfolio: monocromo + Geist · ahora con más vida  ║ -->
-<!-- ╚══════════════════════════════════════════════════════════════════╝ -->
-
 <div align="center">
 
-<!-- ░░░ HERO ░░░ banner negro a todo lo ancho con el nombre encima ░░░ -->
 <a href="https://dauphinsss.vercel.app">
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=020202&height=210&section=header&text=Marcos%20Velaquez%20Vela&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=%40Dauphinsss%20%C2%B7%20Fullstack%20Developer%20%C2%B7%20Bolivia&descSize=18&descAlignY=60&animation=fadeIn"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=020202&height=220&section=header&text=Marcos%20Velaquez%20Vela&fontSize=52&fontColor=ffffff&fontAlignY=36&desc=%40Dauphinsss%20%C2%B7%20Fullstack%20Developer%20%C2%B7%20Bolivia&descSize=18&descAlignY=58&animation=twinkling"/>
 </a>
 
-<!-- línea de identidad en mono -->
-<img src="https://readme-typing-svg.demolab.com?font=Geist+Mono&weight=500&size=18&pause=1200&color=8A8A8A&center=true&vCenter=true&width=640&height=40&lines=Web%2C+mobile+y+desktop...+y+mucho+m%C3%A1s%2C+creo.;...soy+bueno%2C+lo+prometo.;Construyo+cosas+reales+para+Bolivia.;Obsesionado+con+que+todo+se+sienta+vivo." alt="typing"/>
+<img src="https://readme-typing-svg.demolab.com?font=Geist+Mono&weight=500&size=18&pause=900&color=8A8A8A&center=true&vCenter=true&width=680&height=42&lines=Web%2C+mobile+y+desktop...+y+mucho+m%C3%A1s%2C+creo.;...soy+bueno%2C+lo+prometo.;Construyo+cosas+reales+para+Bolivia.;Obsesionado+con+que+todo+se+sienta+vivo." alt="typing"/>
 
 <br/>
 
-<!-- chips de estado -->
 <img src="https://img.shields.io/badge/-Bolivia%20%F0%9F%87%A7%F0%9F%87%B4-020202?style=for-the-badge&labelColor=020202" alt="Bolivia"/>
 <img src="https://img.shields.io/badge/-Ing.%20Inform%C3%A1tica-020202?style=for-the-badge&labelColor=020202" alt="Ing Informatica"/>
 <img src="https://img.shields.io/badge/-Fullstack-020202?style=for-the-badge&labelColor=020202" alt="Fullstack"/>
@@ -25,9 +17,8 @@
 
 </div>
 
-<br/>
+<img src="https://raw.githubusercontent.com/Dauphinsss/Dauphinsss/output/github-contribution-grid-snake-dark.svg" width="100%" alt=""/>
 
-<!-- ══════════════════════════════════════════════════════════════════ -->
 <div align="center">
 
 ###  ·  S O B R E   M Í  ·
@@ -48,9 +39,8 @@ const marko = {
 } as const;
 ```
 
-<br/>
+<img src="https://raw.githubusercontent.com/Dauphinsss/Dauphinsss/output/github-contribution-grid-snake-dark.svg" width="100%" alt=""/>
 
-<!-- ══════════════════════════════════════════════════════════════════ -->
 <div align="center">
 
 ###  ·  P R O Y E C T O S  ·
@@ -61,7 +51,6 @@ const marko = {
 
 <br/>
 
-<!-- ★ DESTACADO ★ a todo el ancho -->
 <table width="100%">
 <tr>
 <td width="100%" valign="top" align="center">
@@ -77,7 +66,6 @@ const marko = {
 </tr>
 </table>
 
-<!-- grid de proyectos · fila 1 -->
 <table width="100%">
 <tr>
 <td width="50%" valign="top">
@@ -103,7 +91,6 @@ Consejero financiero con IA (Gemini): preguntas en lenguaje natural y recibes un
 </tr>
 </table>
 
-<!-- grid · fila 2 -->
 <table width="100%">
 <tr>
 <td width="50%" valign="top">
@@ -129,7 +116,6 @@ Sistema de cashback automatizado para Banexcoin Bolivia, con arquitectura de niv
 </tr>
 </table>
 
-<!-- grid · fila 3 -->
 <table width="100%">
 <tr>
 <td width="50%" valign="top">
@@ -155,9 +141,8 @@ App de cotizaciones rápida y ligera, construida con Astro.
 </tr>
 </table>
 
-<br/>
+<img src="https://raw.githubusercontent.com/Dauphinsss/Dauphinsss/output/github-contribution-grid-snake-dark.svg" width="100%" alt=""/>
 
-<!-- ══════════════════════════════════════════════════════════════════ -->
 <div align="center">
 
 ###  ·  S K I L L S  ·
@@ -178,9 +163,8 @@ Tooling     Git · VS Code · Bun · Claude
 
 </div>
 
-<br/>
+<img src="https://raw.githubusercontent.com/Dauphinsss/Dauphinsss/output/github-contribution-grid-snake-dark.svg" width="100%" alt=""/>
 
-<!-- ══════════════════════════════════════════════════════════════════ -->
 <div align="center">
 
 ###  ·  A C T I V I D A D  ·
@@ -195,17 +179,16 @@ Tooling     Git · VS Code · Bun · Claude
 
 <br/><br/>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Dauphinsss/Dauphinsss/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Dauphinsss/Dauphinsss/output/github-contribution-grid-snake.svg" />
-  <img alt="snake" src="https://raw.githubusercontent.com/Dauphinsss/Dauphinsss/output/github-contribution-grid-snake.svg" />
-</picture>
+<img width="92%" src="https://github-readme-activity-graph.vercel.app/graph?username=Dauphinsss&hide_border=true&bg_color=00000000&color=ffffff&line=ffffff&point=8A8A8A&area=true&area_color=1a1a1a&custom_title=Pulso%20de%20commits" alt="activity graph"/>
+
+<br/><br/>
+
+<img src="https://github-profile-trophy.vercel.app/?username=Dauphinsss&theme=matrix&no-frame=true&no-bg=true&margin-w=6&row=1&column=7&title_color=8A8A8A&text_color=8A8A8A" alt="trophies"/>
 
 </div>
 
-<br/>
+<img src="https://raw.githubusercontent.com/Dauphinsss/Dauphinsss/output/github-contribution-grid-snake-dark.svg" width="100%" alt=""/>
 
-<!-- ══════════════════════════════════════════════════════════════════ -->
 <div align="center">
 
 ###  ·  C O N T A C T O  ·
@@ -222,4 +205,4 @@ Tooling     Git · VS Code · Bun · Claude
 
 </div>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=020202&height=120&section=footer&animation=fadeIn"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=020202&height=120&section=footer&animation=twinkling"/>
