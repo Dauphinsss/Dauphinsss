@@ -3,21 +3,30 @@ import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
 import type { IconType } from "react-icons";
 import {
   SiAngular,
+  SiAnthropic,
   SiAstro,
+  SiBun,
   SiClaude,
   SiCss3,
+  SiDocker,
   SiExpo,
   SiExpress,
+  SiFastapi,
   SiFirebase,
   SiFramer,
   SiGit,
+  SiGooglegemini,
   SiGreensock,
   SiHtml5,
   SiJavascript,
+  SiLangchain,
+  SiLatex,
   SiMysql,
+  SiN8N,
   SiNestjs,
   SiNextdotjs,
   SiNodedotjs,
+  SiOpenai,
   SiPostgresql,
   SiPrisma,
   SiPython,
@@ -79,6 +88,17 @@ const iconMap: Record<string, SkillIcon> = {
   Tauri: { Icon: SiTauri, color: "#24C8D8" },
   Git: { Icon: SiGit, color: "#F05032" },
   "VS Code": { Icon: SiVscodium, color: "#2F80ED" },
+  LaTeX: { Icon: SiLatex, color: "#008080" },
+  Bun: { Icon: SiBun, color: "#FBF0DF" },
+  Docker: { Icon: SiDocker, color: "#2496ED" },
+  n8n: { Icon: SiN8N, color: "#EA4B71" },
+  MCP: { Icon: SiAnthropic, color: "#D97706" },
+  "APIs REST": { Icon: SiFastapi, color: "#009688" },
+  "REST APIs": { Icon: SiFastapi, color: "#009688" },
+  "Agentes de IA": { Icon: SiLangchain, color: "#1C3C3C" },
+  "AI Agents": { Icon: SiLangchain, color: "#1C3C3C" },
+  Gemini: { Icon: SiGooglegemini, color: "#8E75B2" },
+  OpenAI: { Icon: SiOpenai, color: "#FFFFFF" },
   Claude: { Icon: SiClaude, color: "#D97706" }
 };
 
@@ -181,6 +201,7 @@ export default function SkillsCarousel({ title, rows }: Props) {
   const one = (rows[0] ?? "").split("·").map((s) => s.trim()).filter(Boolean);
   const two = (rows[1] ?? "").split("·").map((s) => s.trim()).filter(Boolean);
   const three = (rows[2] ?? "").split("·").map((s) => s.trim()).filter(Boolean);
+  const four = (rows[3] ?? "").split("·").map((s) => s.trim()).filter(Boolean);
 
   return (
     <section className="js-work skills-glow relative mt-4 mb-5 overflow-hidden border border-[var(--border)] bg-[var(--card)] py-5 max-[768px]:py-4">
@@ -191,6 +212,7 @@ export default function SkillsCarousel({ title, rows }: Props) {
         <InfiniteRow skills={one} baseVelocity={-16} />
         <InfiniteRow skills={two} baseVelocity={14} />
         <InfiniteRow skills={three} baseVelocity={-12} />
+        {four.length > 0 ? <InfiniteRow skills={four} baseVelocity={10} /> : null}
       </div>
     </section>
   );

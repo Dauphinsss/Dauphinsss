@@ -19,13 +19,14 @@ export const copy = {
     workItems: ["THIS SHOULD", "REPRESENT ME", "FOR REAL"],
     aboutTitle: "About",
     aboutText:
-      "Hi, I am Marko... I know a lot of things as a developer, so I am fullstack and, em..., mmm..., well, I want to get a job, so I made this portfolio to show what I can do :).",
+      "Hi, I am Marko. Fullstack developer from Bolivia — I build real things for the web, mobile and desktop, and I care about making every interface feel alive. Lately I am deep into automation and AI agents (n8n, MCP, LLMs).",
     linksTitle: "Contact",
     skillsTitle: "Skills",
     skillsRows: [
       "JavaScript · TypeScript · React · React Native · Expo · Next.js · Angular · Astro · HTML5 · CSS3 · TailwindCSS",
       "Node.js · Express · NestJS · Rust · Python · PostgreSQL · MySQL · Prisma · Firebase",
-      "GSAP · Framer Motion · Tauri · Git · VS Code · Claude"
+      "n8n · MCP · REST APIs · Webhooks · LLMs · AI Agents · Gemini · Claude · OpenAI",
+      "GSAP · Framer Motion · Tauri · Git · VS Code · LaTeX · Bun · Docker"
     ],
     github: "GitHub",
     linkedin: "LinkedIn",
@@ -41,13 +42,14 @@ export const copy = {
     workItems: ["ESTO DEBERIA", "REPRESENTARME", "DE VERDAD"],
     aboutTitle: "Sobre Mi",
     aboutText:
-      "Hola, soy Marko... se muchas cosas como desarrollador, por eso soy fullstack y, em..., mmm..., bueno, quiero conseguir trabajo, asi que hice este portafolio para mostrar lo que puedo hacer :).",
+      "Hola, soy Marko. Desarrollador fullstack de Bolivia — construyo cosas reales para web, mobile y desktop, y me obsesiona que cada interfaz se sienta viva. Últimamente estoy metido en automatización y agentes de IA (n8n, MCP, LLMs).",
     linksTitle: "Contacto",
     skillsTitle: "Skills",
     skillsRows: [
       "JavaScript · TypeScript · React · React Native · Expo · Next.js · Angular · Astro · HTML5 · CSS3 · TailwindCSS",
       "Node.js · Express · NestJS · Rust · Python · PostgreSQL · MySQL · Prisma · Firebase",
-      "GSAP · Framer Motion · Tauri · Git · VS Code · Claude"
+      "n8n · MCP · APIs REST · Webhooks · LLMs · Agentes de IA · Gemini · Claude · OpenAI",
+      "GSAP · Framer Motion · Tauri · Git · VS Code · LaTeX · Bun · Docker"
     ],
     github: "GitHub",
     linkedin: "LinkedIn",

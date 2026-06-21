@@ -164,12 +164,12 @@ Datos             PostgreSQL · MySQL · Prisma · Firebase
 Automatización    n8n · MCP · APIs REST · Webhooks
 IA & Agentes      LLMs · Agentes de IA · Gemini · Claude · OpenAI
 Animación         GSAP · Framer Motion · Tauri
-Tooling           Git · VS Code · Bun · Docker
+Tooling           Git · VS Code · LaTeX · Bun · Docker
 ```
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,astro,angular,tailwind,nodejs,nest,rust,python,postgres,prisma,firebase,git,docker&theme=dark&perline=16" alt="skills"/>
+<img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,astro,angular,tailwind,nodejs,nest,rust,python,postgres,prisma,firebase,git,latex,docker&theme=dark&perline=17" alt="skills"/>
 
 <br/><br/>
 
