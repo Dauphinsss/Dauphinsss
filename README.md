@@ -53,35 +53,50 @@ const marko = {
 
 <table width="100%">
 <tr>
-<td width="100%" valign="top" align="center">
+<td width="50%" valign="top">
 
-###  ★  Bebras Bolivia
-**Mi proyecto principal ahora.** Sitio oficial del concurso boliviano de pensamiento computacional, con un CMS propio para administrar todo el contenido editable.
+<a href="https://bebras-bolivia.vercel.app"><img width="100%" src="assets/projects/bebras.png" alt="Bebras Bolivia"/></a>
+
+#### ★ Bebras Bolivia &nbsp;<sub>`proyecto principal`</sub>
+Sitio oficial del concurso boliviano de pensamiento computacional, con un CMS propio para administrar todo el contenido.
 
 <img src="https://img.shields.io/badge/Astro-020202?style=flat-square&logo=astro&logoColor=white"/> <img src="https://img.shields.io/badge/React-020202?style=flat-square&logo=react&logoColor=white"/> <img src="https://img.shields.io/badge/Tailwind-020202?style=flat-square&logo=tailwindcss&logoColor=white"/> <img src="https://img.shields.io/badge/Bun-020202?style=flat-square&logo=bun&logoColor=white"/>
 
-**[ ↗ bebras-bolivia.vercel.app ](https://bebras-bolivia.vercel.app)**  ·  [Código](https://github.com/Dauphinsss/bebras-bolivia)
+[↗ Demo](https://bebras-bolivia.vercel.app) · [Repo](https://github.com/Dauphinsss/bebras-bolivia)
 
 </td>
-</tr>
-</table>
-
-<table width="100%">
-<tr>
 <td width="50%" valign="top">
 
+<a href="https://informatica.art"><img width="100%" src="assets/projects/informatica.png" alt="Informática UMSS"/></a>
+
 #### ▸ Informática &nbsp;<sub>`dominio propio`</sub>
-Plataforma web de la carrera de Ing. Informática, desplegada en su propio dominio.
+Plataforma web de Ingeniería Informática — UMSS, desplegada en su propio dominio.
 
 <img src="https://img.shields.io/badge/Next.js-020202?style=flat-square&logo=nextdotjs&logoColor=white"/> <img src="https://img.shields.io/badge/TypeScript-020202?style=flat-square&logo=typescript&logoColor=white"/>
 
 [↗ informatica.art](https://informatica.art) · [Repo](https://github.com/Dauphinsss/informatica-web)
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
+<a href="https://websiss.vercel.app"><img width="100%" src="assets/projects/websiss.png" alt="webSISS UMSS"/></a>
+
+#### ▸ webSISS
+Portal académico de la UMSS Cochabamba: inscripciones, calificaciones, horarios y gestión, con acceso para estudiantes, docentes y postulantes.
+
+<img src="https://img.shields.io/badge/Astro-020202?style=flat-square&logo=astro&logoColor=white"/> <img src="https://img.shields.io/badge/TypeScript-020202?style=flat-square&logo=typescript&logoColor=white"/>
+
+[↗ Demo](https://websiss.vercel.app) · [Repo](https://github.com/Dauphinsss/websiss)
+
+</td>
+<td width="50%" valign="top">
+
+<a href="https://cochatech.vercel.app"><img width="100%" src="assets/projects/ayni.png" alt="Ayni"/></a>
+
 #### ▸ Ayni
-Consejero financiero con IA (Gemini): preguntas en lenguaje natural y recibes un veredicto claro.
+Consejero financiero con IA (Gemini): preguntas en lenguaje natural y recibes un veredicto claro. Todo vive en tu navegador.
 
 <img src="https://img.shields.io/badge/Astro-020202?style=flat-square&logo=astro&logoColor=white"/> <img src="https://img.shields.io/badge/Gemini-020202?style=flat-square&logo=googlegemini&logoColor=white"/>
 
@@ -89,14 +104,13 @@ Consejero financiero con IA (Gemini): preguntas en lenguaje natural y recibes un
 
 </td>
 </tr>
-</table>
-
-<table width="100%">
 <tr>
 <td width="50%" valign="top">
 
+<a href="https://codeforces-one.vercel.app"><img width="100%" src="assets/projects/accessibleforces.png" alt="Accessibleforces"/></a>
+
 #### ▸ Accessibleforces
-Clon de Codeforces reconstruido con foco real en accesibilidad (WCAG 2.2 AA).
+Clon de Codeforces para programación competitiva, reconstruido con foco real en accesibilidad (WCAG 2.2 AA).
 
 <img src="https://img.shields.io/badge/Astro-020202?style=flat-square&logo=astro&logoColor=white"/> <img src="https://img.shields.io/badge/React-020202?style=flat-square&logo=react&logoColor=white"/>
 
@@ -105,38 +119,32 @@ Clon de Codeforces reconstruido con foco real en accesibilidad (WCAG 2.2 AA).
 </td>
 <td width="50%" valign="top">
 
-#### ▸ BanexReintegra
-Sistema de cashback automatizado para Banexcoin Bolivia, con arquitectura de nivel bancario.
-
-<img src="https://img.shields.io/badge/TypeScript-020202?style=flat-square&logo=typescript&logoColor=white"/> <img src="https://img.shields.io/badge/Fullstack-020202?style=flat-square&logoColor=white"/>
-
-[↗ Demo](https://banexcoin-two-frontend.vercel.app) · [Repo](https://github.com/Dauphinsss/banexcoin-two)
-
-</td>
-</tr>
-</table>
-
-<table width="100%">
-<tr>
-<td width="50%" valign="top">
+<a href="https://sansistore.vercel.app"><img width="100%" src="assets/projects/sansistore.png" alt="Sansistore"/></a>
 
 #### ▸ Sansistore
-Tienda online con su propio flujo de trabajo y documentación de equipo.
+Tienda online de moda con catálogo, colecciones y carrito de compras.
 
 <img src="https://img.shields.io/badge/TypeScript-020202?style=flat-square&logo=typescript&logoColor=white"/>
 
 [↗ Demo](https://sansistore.vercel.app) · [Repo](https://github.com/Dauphinsss/sansistore)
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
+<a href="https://cotizacion-lemon.vercel.app"><img width="100%" src="assets/projects/cotizacion.png" alt="Cotización"/></a>
+
 #### ▸ Cotización
-App de cotizaciones rápida y ligera, construida con Astro.
+Página de propuesta comercial con diseño editorial elegante para captar clientes.
 
 <img src="https://img.shields.io/badge/Astro-020202?style=flat-square&logo=astro&logoColor=white"/>
 
 [↗ Demo](https://cotizacion-lemon.vercel.app) · [Repo](https://github.com/Dauphinsss/cotizacion)
 
+</td>
+<td width="50%" valign="top">
+&nbsp;
 </td>
 </tr>
 </table>
@@ -150,16 +158,28 @@ App de cotizaciones rápida y ligera, construida con Astro.
 </div>
 
 ```
-Frontend    JavaScript · TypeScript · React · React Native · Expo · Next.js · Angular · Astro · TailwindCSS
-Backend     Node.js · Express · NestJS · Rust · Python
-Datos       PostgreSQL · MySQL · Prisma · Firebase
-Animación   GSAP · Framer Motion · Tauri
-Tooling     Git · VS Code · Bun · Claude
+Frontend          JavaScript · TypeScript · React · React Native · Expo · Next.js · Angular · Astro · TailwindCSS
+Backend           Node.js · Express · NestJS · Rust · Python
+Datos             PostgreSQL · MySQL · Prisma · Firebase
+Automatización    n8n · MCP · APIs REST · Webhooks
+IA & Agentes      LLMs · Agentes de IA · Gemini · Claude · OpenAI
+Animación         GSAP · Framer Motion · Tauri
+Tooling           Git · VS Code · Bun · Docker
 ```
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,astro,angular,tailwind,nodejs,nest,rust,python,postgres,prisma,firebase,git&theme=dark&perline=15" alt="skills"/>
+<img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,astro,angular,tailwind,nodejs,nest,rust,python,postgres,prisma,firebase,git,docker&theme=dark&perline=16" alt="skills"/>
+
+<br/><br/>
+
+<img src="https://img.shields.io/badge/n8n-020202?style=for-the-badge&logo=n8n&logoColor=white" alt="n8n"/>
+<img src="https://img.shields.io/badge/MCP-020202?style=for-the-badge&logo=anthropic&logoColor=white" alt="MCP"/>
+<img src="https://img.shields.io/badge/APIs%20REST-020202?style=for-the-badge&logo=fastapi&logoColor=white" alt="REST APIs"/>
+<img src="https://img.shields.io/badge/Agentes%20de%20IA-020202?style=for-the-badge&logo=langchain&logoColor=white" alt="AI Agents"/>
+<img src="https://img.shields.io/badge/Gemini-020202?style=for-the-badge&logo=googlegemini&logoColor=white" alt="Gemini"/>
+<img src="https://img.shields.io/badge/Claude-020202?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude"/>
+<img src="https://img.shields.io/badge/OpenAI-020202?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI"/>
 
 </div>
 
