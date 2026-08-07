@@ -34,7 +34,24 @@ export default function CursorFollower() {
       const xTo = gsap.quickTo(dot, "x", { duration: 1, ease: "power3.out" });
       const yTo = gsap.quickTo(dot, "y", { duration: 1, ease: "power3.out" });
 
+      // Nothing to follow until the pointer actually moves, so stay hidden
+      // instead of parking a dot in the middle of the page.
+      let revealed = false;
+      const reveal = (event: PointerEvent) => {
+        revealed = true;
+        gsap.set(dot, { x: event.clientX - offset, y: event.clientY - offset });
+        gsap.to(dot, { autoAlpha: 1, duration: 0.35, ease: "power2.out" });
+      };
+
       const onMove = (event: PointerEvent) => {
+        if (!revealed) {
+          reveal(event);
+          lastX = event.clientX;
+          lastY = event.clientY;
+          lastT = performance.now();
+          return;
+        }
+
         const dx = event.clientX - lastX;
         const dy = event.clientY - lastY;
         const now = performance.now();
@@ -53,7 +70,7 @@ export default function CursorFollower() {
           scaleY: squeeze,
           duration: 0.18,
           ease: "power2.out",
-          overwrite: true
+          overwrite: true,
         });
 
         settleTween?.kill();
@@ -64,7 +81,7 @@ export default function CursorFollower() {
           duration: 0.38,
           ease: "power3.out",
           delay: 0.03,
-          overwrite: true
+          overwrite: true,
         });
 
         lastX = event.clientX;
@@ -88,7 +105,7 @@ export default function CursorFollower() {
   return (
     <div
       ref={dotRef}
-      className="pointer-events-none fixed left-0 top-0 z-9999 h-11 w-11 text-white mix-blend-difference will-change-transform"
+      className="pointer-events-none invisible fixed left-0 top-0 z-9999 h-11 w-11 text-white opacity-0 mix-blend-difference will-change-transform"
       aria-hidden="true"
     >
       <svg viewBox="0 0 48 48" className="h-full w-full" aria-hidden="true" focusable="false">

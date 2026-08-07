@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import {
   motion,
   useAnimationFrame,
@@ -6,8 +5,9 @@ import {
   useScroll,
   useSpring,
   useTransform,
-  useVelocity
+  useVelocity,
 } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 type Props = {
   title: string;
@@ -62,16 +62,28 @@ function ParallaxRow({ text, baseVelocity }: ParallaxRowProps) {
         className="[font-family:var(--font-display)] text-[clamp(2rem,7.5vw,4.8rem)] leading-[0.88] tracking-[0.06em] uppercase"
       >
         <div ref={setRef} className="inline-flex">
-          <span className="mr-8 inline-block text-[color:color-mix(in_srgb,var(--fg)_26%,transparent)]">{text}</span>
-          <span className="mr-8 inline-block text-[color:color-mix(in_srgb,var(--fg)_42%,transparent)]">{text}</span>
-          <span className="mr-8 inline-block text-[var(--fg)]">{text}</span>
-          <span className="mr-8 inline-block text-[color:color-mix(in_srgb,var(--fg)_42%,transparent)]">{text}</span>
+          <span className="mr-8 inline-block text-[color:color-mix(in_srgb,var(--fg)_26%,transparent)]">
+            {text}
+          </span>
+          <span className="mr-8 inline-block text-[color:color-mix(in_srgb,var(--fg)_42%,transparent)]">
+            {text}
+          </span>
+          <span className="mr-8 inline-block text-[color:var(--fg)]">{text}</span>
+          <span className="mr-8 inline-block text-[color:color-mix(in_srgb,var(--fg)_42%,transparent)]">
+            {text}
+          </span>
         </div>
         <div className="inline-flex" aria-hidden="true">
-          <span className="mr-8 inline-block text-[color:color-mix(in_srgb,var(--fg)_26%,transparent)]">{text}</span>
-          <span className="mr-8 inline-block text-[color:color-mix(in_srgb,var(--fg)_42%,transparent)]">{text}</span>
-          <span className="mr-8 inline-block text-[var(--fg)]">{text}</span>
-          <span className="mr-8 inline-block text-[color:color-mix(in_srgb,var(--fg)_42%,transparent)]">{text}</span>
+          <span className="mr-8 inline-block text-[color:color-mix(in_srgb,var(--fg)_26%,transparent)]">
+            {text}
+          </span>
+          <span className="mr-8 inline-block text-[color:color-mix(in_srgb,var(--fg)_42%,transparent)]">
+            {text}
+          </span>
+          <span className="mr-8 inline-block text-[color:var(--fg)]">{text}</span>
+          <span className="mr-8 inline-block text-[color:color-mix(in_srgb,var(--fg)_42%,transparent)]">
+            {text}
+          </span>
         </div>
       </motion.div>
     </div>
@@ -79,20 +91,20 @@ function ParallaxRow({ text, baseVelocity }: ParallaxRowProps) {
 }
 
 export default function WorkShowcase({ title, items }: Props) {
-  const one = items[0] ?? "VISUAL";
-  const two = items[1] ?? "PULSE";
-  const three = items[2] ?? "SALMON";
+  const one = items[0] ?? "CONSTRUYO COSAS REALES";
+  const two = items[1] ?? "DISEÑO CÓMO SE SIENTEN";
+  const three = items[2] ?? "Y ENSEÑO LO QUE SÉ";
 
   return (
     <section className="js-work relative mt-8 mb-6 overflow-hidden border border-[var(--border)] bg-[var(--bg)] py-8 max-[768px]:py-6">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,color-mix(in_srgb,var(--fg)_34%,transparent)_1px,transparent_1.7px)] bg-[length:11px_11px] opacity-35" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,color-mix(in_srgb,var(--fg)_7%,transparent)_50%,transparent_100%)]" />
 
-      <p className="relative z-[2] mb-6 ml-4 [font-family:var(--font-mono)] text-[0.82rem] tracking-[0.1em] text-[var(--muted)] uppercase max-[768px]:mb-4">
+      <p className="relative z-[2] mb-6 ml-4 [font-family:var(--font-mono)] text-[0.82rem] tracking-[0.1em] text-[color:var(--muted)] uppercase max-[768px]:mb-4">
         {title}
       </p>
-      <span className="pointer-events-none absolute top-4 right-4 z-[2] [font-family:var(--font-display)] text-[clamp(1.1rem,3.4vw,2rem)] leading-none tracking-[0.08em] text-[var(--fg)] opacity-65">
-        SALMON
+      <span className="pointer-events-none absolute top-4 right-4 z-[2] [font-family:var(--font-display)] text-[clamp(1.1rem,3.4vw,2rem)] leading-none tracking-[0.08em] text-[color:var(--fg)] opacity-65">
+        BO
       </span>
 
       <div className="relative z-[2] space-y-1.5">

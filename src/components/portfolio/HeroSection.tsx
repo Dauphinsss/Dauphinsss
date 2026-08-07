@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import CatModel from "./CatModel";
 
 type Props = {
   label: string;
@@ -60,16 +61,20 @@ export default function HeroSection({ label, name, handle, bio }: Props) {
     };
   }, []);
 
+  // The right padding on wide screens reserves the cat's column, so no line of
+  // text can ever run underneath it.
   return (
     <section
       ref={sectionRef}
-      className="js-hero relative overflow-hidden border-b border-[var(--border)] py-14 pb-12 max-[768px]:py-10 max-[768px]:pb-9"
+      className="js-hero relative overflow-hidden border-b border-[var(--border)] py-14 pb-12 max-[768px]:py-10 max-[768px]:pb-9 min-[1100px]:pr-[clamp(310px,29vw,470px)]"
     >
-      <p className="mb-4 [font-family:var(--font-mono)] text-xs tracking-[0.12em] text-[var(--muted)] uppercase">{label}</p>
+      <p className="mb-4 [font-family:var(--font-mono)] text-xs tracking-[0.12em] text-[color:var(--muted)] uppercase">
+        {label}
+      </p>
       <p
         ref={backRef}
         aria-hidden="true"
-        className="pointer-events-none absolute top-16 left-0 z-[0] m-0 [font-family:var(--font-display)] text-[clamp(3.8rem,15vw,12rem)] leading-[0.86] tracking-[0.04em] text-transparent [-webkit-text-stroke:1px_color-mix(in_srgb,var(--fg)_22%,transparent)] select-none max-[768px]:top-22 max-[768px]:text-[clamp(2.3rem,16vw,4.8rem)]"
+        className="js-hero-ghost pointer-events-none absolute top-16 left-0 z-[0] m-0 [font-family:var(--font-display)] text-[clamp(3.8rem,15vw,12rem)] leading-[0.86] tracking-[0.04em] text-transparent [-webkit-text-stroke:1px_color-mix(in_srgb,var(--fg)_22%,transparent)] select-none max-[768px]:top-22 max-[768px]:text-[clamp(2.3rem,16vw,4.8rem)]"
       >
         {handle}
       </p>
@@ -79,13 +84,27 @@ export default function HeroSection({ label, name, handle, bio }: Props) {
       >
         {name}
       </h1>
-      <p className="relative z-[1] mt-4 mb-3 [font-family:var(--font-mono)] text-base text-[var(--muted)] max-[768px]:text-sm">
+      <p className="relative z-[1] mt-4 mb-3 [font-family:var(--font-mono)] text-base text-[color:var(--muted)] max-[768px]:text-sm">
         @{handle}
       </p>
-      <p className="relative z-[1] m-0 max-w-[66ch] text-[1.03rem] leading-[1.62] text-[color:color-mix(in_srgb,var(--fg)_90%,var(--bg))] max-[768px]:text-[0.94rem] max-[768px]:leading-[1.52]">
-        {bio}
+      {/* Each word gets its own mask so the line can rise into view in sequence
+          instead of the whole paragraph fading at once. */}
+      <p className="js-bio relative z-[1] m-0 flex max-w-[66ch] flex-wrap text-[1.03rem] leading-[1.62] text-[color:color-mix(in_srgb,var(--fg)_90%,var(--bg))] max-[768px]:text-[0.94rem] max-[768px]:leading-[1.52]">
+        {bio.split(" ").map((word, index) => (
+          <span
+            // biome-ignore lint/suspicious/noArrayIndexKey: words repeat, index is the stable id
+            key={index}
+            className="inline-block overflow-hidden pr-[0.32em]"
+          >
+            <span className="js-bio-word inline-block">{word}</span>
+          </span>
+        ))}
       </p>
+
+      {/* Centred with auto margins rather than -translate-y-1/2: GSAP folds the
+          standalone translate/rotate/scale properties into `transform` and
+          clears them, which would wipe a Tailwind translate mid-scroll. */}
+      <CatModel className="js-cat pointer-events-none relative mx-auto mt-8 h-[min(64vw,300px)] w-[min(64vw,300px)] min-[1100px]:absolute min-[1100px]:inset-y-0 min-[1100px]:right-0 min-[1100px]:z-[2] min-[1100px]:mx-0 min-[1100px]:my-auto min-[1100px]:mt-0 min-[1100px]:h-[clamp(280px,27vw,430px)] min-[1100px]:w-[clamp(280px,27vw,430px)]" />
     </section>
   );
 }
-

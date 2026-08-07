@@ -70,14 +70,18 @@ export default function MusicWidget() {
   return (
     <div className="fixed right-4 bottom-4 z-[10000] flex items-end gap-2 max-[768px]:right-3 max-[768px]:bottom-3">
       <div
-        className={`origin-bottom-right overflow-hidden border border-[var(--border)] bg-[color:color-mix(in_srgb,var(--bg)_94%,transparent)] text-[var(--fg)] backdrop-blur-md transition-all duration-300 ${
+        className={`origin-bottom-right overflow-hidden border border-[var(--border)] bg-[color:color-mix(in_srgb,var(--bg)_94%,transparent)] text-[color:var(--fg)] backdrop-blur-md transition-all duration-300 ${
           isExpanded ? "max-w-[290px] p-2 opacity-100" : "max-w-0 p-0 opacity-0"
         }`}
       >
         <div className="flex items-start gap-2">
-          <img src="/silvagunner.png" alt="SiIvaGunner avatar" className="h-9 w-9 rounded-full object-cover" />
+          <img
+            src="/silvagunner.png"
+            alt="SiIvaGunner avatar"
+            className="h-9 w-9 rounded-full object-cover"
+          />
           <div className="min-w-0">
-            <p className="[font-family:var(--font-mono)] text-[0.65rem] tracking-[0.08em] text-[var(--muted)] uppercase">
+            <p className="[font-family:var(--font-mono)] text-[0.65rem] tracking-[0.08em] text-[color:var(--muted)] uppercase">
               Now Playing
             </p>
             <div className="song-marquee [font-family:var(--font-body)] text-xs leading-tight">
@@ -90,7 +94,7 @@ export default function MusicWidget() {
               href={AUTHOR_URL}
               target="_blank"
               rel="noreferrer"
-              className="[font-family:var(--font-mono)] text-[0.68rem] text-[var(--muted)] transition hover:text-[var(--fg)]"
+              className="[font-family:var(--font-mono)] text-[0.68rem] text-[color:var(--muted)] transition hover:text-[color:var(--fg)]"
             >
               @SilvaGunner
             </a>
@@ -98,7 +102,7 @@ export default function MusicWidget() {
           <button
             type="button"
             onClick={() => setIsExpanded(false)}
-            className="ml-1 cursor-pointer border border-[var(--border)] px-1.5 py-0.5 [font-family:var(--font-mono)] text-[0.62rem] text-[var(--muted)] transition hover:text-[var(--fg)]"
+            className="ml-1 cursor-pointer border border-[var(--border)] px-1.5 py-0.5 [font-family:var(--font-mono)] text-[0.62rem] text-[color:var(--muted)] transition hover:text-[color:var(--fg)]"
             aria-label="Close music credits"
           >
             X
@@ -129,7 +133,7 @@ export default function MusicWidget() {
           ))}
         </span>
         {isMuted ? (
-          <span className="pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap border border-[var(--border)] bg-[var(--bg)] px-1.5 py-0.5 [font-family:var(--font-mono)] text-[0.58rem] uppercase text-[var(--muted)]">
+          <span className="pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap border border-[var(--border)] bg-[var(--bg)] px-1.5 py-0.5 [font-family:var(--font-mono)] text-[0.58rem] uppercase text-[color:var(--muted)]">
             tap
           </span>
         ) : null}

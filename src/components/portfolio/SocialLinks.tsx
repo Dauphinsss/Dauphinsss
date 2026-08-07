@@ -1,15 +1,16 @@
-import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
+import { SiGithub, SiYoutube } from "react-icons/si";
 
 type Props = {
   labels: {
     github: string;
-    linkedin: string;
+    youtube: string;
     email: string;
     whatsapp: string;
   };
   urls: {
     github: string;
-    linkedin: string;
+    youtube: string;
     email: string;
     whatsapp: string;
   };
@@ -25,19 +26,19 @@ export default function SocialLinks({ labels, urls }: Props) {
           target="_blank"
           rel="noreferrer"
         >
-          <Github size={16} strokeWidth={1.8} />
+          <SiGithub size={16} />
           <span>{labels.github}</span>
         </a>
       </li>
       <li>
         <a
-          href={urls.linkedin}
+          href={urls.youtube}
           className="js-link inline-flex items-center gap-2 border-b border-[var(--border)] pb-0.5 [font-family:var(--font-mono)] text-[0.9rem] transition duration-300 hover:-translate-y-px hover:border-[var(--fg)]"
           target="_blank"
           rel="noreferrer"
         >
-          <Linkedin size={16} strokeWidth={1.8} />
-          <span>{labels.linkedin}</span>
+          <SiYoutube size={16} />
+          <span>{labels.youtube}</span>
         </a>
       </li>
       <li>

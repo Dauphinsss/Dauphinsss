@@ -1,12 +1,11 @@
-import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { IconType } from "react-icons";
 import {
   SiAngular,
   SiAnthropic,
   SiAstro,
   SiBun,
-  SiClaude,
   SiCss3,
   SiDocker,
   SiExpo,
@@ -15,18 +14,15 @@ import {
   SiFirebase,
   SiFramer,
   SiGit,
-  SiGooglegemini,
   SiGreensock,
   SiHtml5,
   SiJavascript,
-  SiLangchain,
   SiLatex,
   SiMysql,
   SiN8N,
   SiNestjs,
   SiNextdotjs,
   SiNodedotjs,
-  SiOpenai,
   SiPostgresql,
   SiPrisma,
   SiPython,
@@ -35,7 +31,7 @@ import {
   SiTailwindcss,
   SiTauri,
   SiTypescript,
-  SiVscodium
+  SiVscodium,
 } from "react-icons/si";
 
 type Props = {
@@ -95,11 +91,6 @@ const iconMap: Record<string, SkillIcon> = {
   MCP: { Icon: SiAnthropic, color: "#D97706" },
   "APIs REST": { Icon: SiFastapi, color: "#009688" },
   "REST APIs": { Icon: SiFastapi, color: "#009688" },
-  "Agentes de IA": { Icon: SiLangchain, color: "#1C3C3C" },
-  "AI Agents": { Icon: SiLangchain, color: "#1C3C3C" },
-  Gemini: { Icon: SiGooglegemini, color: "#8E75B2" },
-  OpenAI: { Icon: SiOpenai, color: "#FFFFFF" },
-  Claude: { Icon: SiClaude, color: "#D97706" }
 };
 
 function SkillChip({ skill, chipId }: { skill: string; chipId: string }) {
@@ -119,7 +110,7 @@ function SkillChip({ skill, chipId }: { skill: string; chipId: string }) {
           style={{
             ["--skill-color" as string]: color,
             ["--flicker-duration" as string]: flickerDuration,
-            ["--flicker-delay" as string]: flickerDelay
+            ["--flicker-delay" as string]: flickerDelay,
           }}
         />
       ) : (
@@ -198,14 +189,26 @@ function InfiniteRow({ skills, baseVelocity }: RowProps) {
 }
 
 export default function SkillsCarousel({ title, rows }: Props) {
-  const one = (rows[0] ?? "").split("·").map((s) => s.trim()).filter(Boolean);
-  const two = (rows[1] ?? "").split("·").map((s) => s.trim()).filter(Boolean);
-  const three = (rows[2] ?? "").split("·").map((s) => s.trim()).filter(Boolean);
-  const four = (rows[3] ?? "").split("·").map((s) => s.trim()).filter(Boolean);
+  const one = (rows[0] ?? "")
+    .split("·")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const two = (rows[1] ?? "")
+    .split("·")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const three = (rows[2] ?? "")
+    .split("·")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const four = (rows[3] ?? "")
+    .split("·")
+    .map((s) => s.trim())
+    .filter(Boolean);
 
   return (
     <section className="js-work skills-glow relative mt-4 mb-5 overflow-hidden border border-[var(--border)] bg-[var(--card)] py-5 max-[768px]:py-4">
-      <p className="relative z-[2] mb-3 ml-4 [font-family:var(--font-body)] text-[0.78rem] tracking-[0.14em] text-[var(--muted)] uppercase">
+      <p className="relative z-[2] mb-3 ml-4 [font-family:var(--font-body)] text-[0.78rem] tracking-[0.14em] text-[color:var(--muted)] uppercase">
         {title}
       </p>
       <div className="relative z-[2] space-y-2">
