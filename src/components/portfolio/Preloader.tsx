@@ -125,7 +125,7 @@ export default function Preloader({ onDone }: Props) {
 
           bees.forEach((bee, index) => {
             const fromLeft = index % 2 === 0;
-            const at = 0.5 + index * 0.22;
+            const at = 0.35 + index * 0.16;
             const entryY = vh * (0.18 + (index / BEE_COUNT) * 0.62);
             const angle = (index / BEE_COUNT) * Math.PI * 2;
             const orbit = Math.min(vw, vh) * 0.22 + (index % 3) * 34;
@@ -141,43 +141,61 @@ export default function Preloader({ onDone }: Props) {
               rest,
             ];
 
+            // Peels off along the tangent first, then curves outward. Leaving
+            // straight down the radius reads as an instant U-turn.
+            const tangent = angle + Math.PI / 2;
             const scatter = [
               rest,
               {
-                x: center.x + Math.cos(angle) * vw * 0.35,
-                y: center.y + Math.sin(angle) * vh * 0.3,
+                x: rest.x + Math.cos(tangent) * orbit * 0.75,
+                y: rest.y + Math.sin(tangent) * orbit * 0.75,
               },
               {
-                x: center.x + Math.cos(angle) * vw * 1.1,
-                y: center.y + Math.sin(angle) * vh * 1.1,
+                x: center.x + Math.cos(angle + 0.5) * vw * 0.4,
+                y: center.y + Math.sin(angle + 0.5) * vh * 0.36,
+              },
+              {
+                x: center.x + Math.cos(angle + 0.7) * vw * 1.2,
+                y: center.y + Math.sin(angle + 0.7) * vh * 1.2,
               },
             ];
+
+            const landed = at + 1.35;
+            // Each bee gets its own departure slot, so they trickle away in the
+            // order they arrived instead of all breaking formation at once.
+            const leaves = 3.15 + index * 0.11;
 
             tl.to(bee, { autoAlpha: 1, duration: 0.55, ease: "power1.out" }, at)
               .to(
                 bee,
                 {
-                  duration: 1.5,
+                  duration: 1.35,
                   ease: "power2.inOut",
                   motionPath: { path: approach, curviness: 1.5, autoRotate: BEE_HEADING_OFFSET },
                 },
                 at,
               )
-              // Pollinating: hovering in place over the bloom.
-              .to(
-                bee,
-                { y: "+=11", duration: 0.4, repeat: 2, yoyo: true, ease: "sine.inOut" },
-                at + 1.5,
-              )
               .to(
                 bee,
                 {
-                  duration: 1.2,
-                  ease: "power2.in",
-                  motionPath: { path: scatter, curviness: 1.2, autoRotate: BEE_HEADING_OFFSET },
+                  duration: 1.7,
+                  ease: "power1.in",
+                  motionPath: { path: scatter, curviness: 1.4, autoRotate: BEE_HEADING_OFFSET },
                 },
-                3.4,
+                leaves,
               );
+
+            // Pollinating bob. Deliberately a standalone tween: an infinite
+            // repeat inside the timeline would make its duration infinite, so
+            // onComplete — and the preloader's own teardown — would never run.
+            gsap.to(bee.querySelector(".js-pl-bee-bob"), {
+              y: 11,
+              duration: 0.42,
+              repeat: -1,
+              yoyo: true,
+              ease: "sine.inOut",
+              delay: landed,
+            });
           });
 
           // The bloom answers the swarm.
@@ -266,7 +284,13 @@ export default function Preloader({ onDone }: Props) {
   }, []);
 
   return (
-    <div ref={rootRef} aria-hidden="true" className="fixed inset-0 z-[10001] overflow-hidden">
+    // pointer-events-none because the curtain turns transparent ~1s before the
+    // root is removed; without it that gap silently swallows clicks.
+    <div
+      ref={rootRef}
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 z-[10001] overflow-hidden"
+    >
       <div className="js-pl-curtain absolute inset-0 bg-[var(--bg)]" />
 
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-7">
@@ -294,13 +318,17 @@ export default function Preloader({ onDone }: Props) {
           key={index}
           className="js-pl-bee invisible absolute top-0 left-0 will-change-transform"
         >
-          <img
-            src="/bee.svg"
-            alt=""
-            width={size}
-            height={size}
-            className="js-pl-bee-body block -translate-x-1/2 -translate-y-1/2"
-          />
+          {/* Three nested layers, one transform owner each: motion path on the
+              wrapper, bob here, wing flutter on the image. */}
+          <div className="js-pl-bee-bob">
+            <img
+              src="/bee.svg"
+              alt=""
+              width={size}
+              height={size}
+              className="js-pl-bee-body block -translate-x-1/2 -translate-y-1/2"
+            />
+          </div>
         </div>
       ))}
 

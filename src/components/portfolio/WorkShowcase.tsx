@@ -100,7 +100,7 @@ export default function WorkShowcase({ title, items }: Props) {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,color-mix(in_srgb,var(--fg)_34%,transparent)_1px,transparent_1.7px)] bg-[length:11px_11px] opacity-35" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,color-mix(in_srgb,var(--fg)_7%,transparent)_50%,transparent_100%)]" />
 
-      <p className="relative z-[2] mb-6 ml-4 [font-family:var(--font-mono)] text-[0.82rem] tracking-[0.1em] text-[color:var(--muted)] uppercase max-[768px]:mb-4">
+      <p className="js-scramble relative z-[2] mb-6 ml-4 [font-family:var(--font-mono)] text-[0.82rem] tracking-[0.1em] text-[color:var(--muted)] uppercase max-[768px]:mb-4">
         {title}
       </p>
       <span className="pointer-events-none absolute top-4 right-4 z-[2] [font-family:var(--font-display)] text-[clamp(1.1rem,3.4vw,2rem)] leading-none tracking-[0.08em] text-[color:var(--fg)] opacity-65">

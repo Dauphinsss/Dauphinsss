@@ -6,7 +6,7 @@ type Props = {
 export default function NowSection({ title, items }: Props) {
   return (
     <section className="js-now mt-8 border-t border-[var(--border)] pt-6">
-      <h2 className="mb-5 [font-family:var(--font-mono)] text-[0.82rem] tracking-[0.1em] text-[color:var(--muted)] uppercase">
+      <h2 className="js-scramble mb-5 [font-family:var(--font-mono)] text-[0.82rem] tracking-[0.1em] text-[color:var(--muted)] uppercase">
         {title}
       </h2>
 

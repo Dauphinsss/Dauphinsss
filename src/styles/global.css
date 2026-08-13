@@ -91,11 +91,10 @@ main[data-intro="pending"] .js-hero > * {
   opacity: 0;
 }
 
-/* Parked below their mask, matching the GSAP from-state. Without this the
-   words show in place for the frames between the curtain lifting and the
-   timeline being built, then snap down — a visible hiccup. */
-main[data-intro="pending"] .js-bio-word {
-  transform: translateY(115%);
+/* SplitText cannot run until the curtain lifts (it needs final line boxes), so
+   the bio stays hidden until then rather than flashing in unsplit. */
+main[data-intro="pending"] .js-bio {
+  opacity: 0;
 }
 
 /* Lenis smooth scroll — required for it to take over the scroll container. */

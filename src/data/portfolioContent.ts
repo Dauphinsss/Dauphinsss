@@ -36,6 +36,41 @@ export const copy = {
     youtube: "YouTube",
     email: "Email",
     whatsapp: "WhatsApp",
+    projectsTitle: "Projects",
+    projects: [
+      {
+        name: "Informática Art",
+        logo: "/projects/informatica/logo.png",
+        tags: "Expo · React Native · TypeScript · Firebase",
+        status: "Live on Google Play",
+        text: "Mobile app for Computer Engineering students at UMSS, with over a thousand users. Study material lives organized by subject and section — notes, slides, past exams, recorded classes — so nobody has to dig through a chat group again. Students post documents, images, videos and PDFs, comment and react, and get a push notification when something new lands in a subject they follow. Google sign-in, light and dark themes, and an admin panel for managing subjects, teachers and moderation reports.",
+        url: "https://play.google.com/store/apps/details?id=com.informatica.app",
+        cta: "Get it on Google Play",
+        siteUrl: "https://informatica.art",
+        siteCta: "informatica.art",
+        shots: [
+          { src: "/projects/informatica/inicio.webp", alt: "Subject feed in dark mode" },
+          { src: "/projects/informatica/inicio-claro.webp", alt: "Subject feed in light mode" },
+          {
+            src: "/projects/informatica/publicaciones.webp",
+            alt: "Latest posts with views and reactions",
+          },
+          { src: "/projects/informatica/materia.webp", alt: "Subject detail with sort filters" },
+          {
+            src: "/projects/informatica/secciones.webp",
+            alt: "Sections: notes, slides, past exams",
+          },
+          { src: "/projects/informatica/dashboard.webp", alt: "Admin dashboard with live stats" },
+          {
+            src: "/projects/informatica/gestion-materias.webp",
+            alt: "Subject management with cover art",
+          },
+          { src: "/projects/informatica/docentes.webp", alt: "Teacher directory" },
+          { src: "/projects/informatica/denuncias.webp", alt: "Moderation report queue" },
+          { src: "/projects/informatica/perfil.webp", alt: "User profile screen" },
+        ],
+      },
+    ],
     nowTitle: "Right now",
     nowItems: [
       "Building for web, mobile and desktop — and shipping it to production.",
@@ -71,6 +106,50 @@ export const copy = {
     youtube: "YouTube",
     email: "Email",
     whatsapp: "WhatsApp",
+    projectsTitle: "Proyectos",
+    projects: [
+      {
+        name: "Informática Art",
+        logo: "/projects/informatica/logo.png",
+        tags: "Expo · React Native · TypeScript · Firebase",
+        status: "Publicada en Google Play",
+        text: "App móvil para estudiantes de Ingeniería Informática de la UMSS, con más de mil usuarios. El material de estudio vive ordenado por materia y sección — apuntes, diapositivas, exámenes pasados, clases grabadas — para que nadie tenga que volver a bucear en un grupo de WhatsApp. Los estudiantes suben documentos, imágenes, videos y PDFs, comentan y reaccionan, y reciben una notificación cuando llega algo nuevo a una materia que siguen. Login con Google, tema claro y oscuro, y un panel de administración para gestionar materias, docentes y moderar denuncias.",
+        url: "https://play.google.com/store/apps/details?id=com.informatica.app",
+        cta: "Descargar en Google Play",
+        siteUrl: "https://informatica.art",
+        siteCta: "informatica.art",
+        shots: [
+          { src: "/projects/informatica/inicio.webp", alt: "Listado de materias en modo oscuro" },
+          {
+            src: "/projects/informatica/inicio-claro.webp",
+            alt: "Listado de materias en modo claro",
+          },
+          {
+            src: "/projects/informatica/publicaciones.webp",
+            alt: "Últimas publicaciones con vistas y reacciones",
+          },
+          {
+            src: "/projects/informatica/materia.webp",
+            alt: "Detalle de materia con filtros de orden",
+          },
+          {
+            src: "/projects/informatica/secciones.webp",
+            alt: "Secciones: apuntes, diapositivas, exámenes",
+          },
+          {
+            src: "/projects/informatica/dashboard.webp",
+            alt: "Panel de administración con métricas en vivo",
+          },
+          {
+            src: "/projects/informatica/gestion-materias.webp",
+            alt: "Gestión de materias con portadas",
+          },
+          { src: "/projects/informatica/docentes.webp", alt: "Directorio de docentes" },
+          { src: "/projects/informatica/denuncias.webp", alt: "Cola de denuncias para moderar" },
+          { src: "/projects/informatica/perfil.webp", alt: "Pantalla de perfil de usuario" },
+        ],
+      },
+    ],
     nowTitle: "Ahora mismo",
     nowItems: [
       "Construyendo para web, mobile y desktop — y subiéndolo a producción.",

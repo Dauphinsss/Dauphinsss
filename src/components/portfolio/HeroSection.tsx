@@ -87,18 +87,9 @@ export default function HeroSection({ label, name, handle, bio }: Props) {
       <p className="relative z-[1] mt-4 mb-3 [font-family:var(--font-mono)] text-base text-[color:var(--muted)] max-[768px]:text-sm">
         @{handle}
       </p>
-      {/* Each word gets its own mask so the line can rise into view in sequence
-          instead of the whole paragraph fading at once. */}
-      <p className="js-bio relative z-[1] m-0 flex max-w-[66ch] flex-wrap text-[1.03rem] leading-[1.62] text-[color:color-mix(in_srgb,var(--fg)_90%,var(--bg))] max-[768px]:text-[0.94rem] max-[768px]:leading-[1.52]">
-        {bio.split(" ").map((word, index) => (
-          <span
-            // biome-ignore lint/suspicious/noArrayIndexKey: words repeat, index is the stable id
-            key={index}
-            className="inline-block overflow-hidden pr-[0.32em]"
-          >
-            <span className="js-bio-word inline-block">{word}</span>
-          </span>
-        ))}
+      {/* Plain text: SplitText splits it into masked line boxes at runtime. */}
+      <p className="js-bio relative z-[1] m-0 max-w-[66ch] [perspective:800px] text-[1.03rem] leading-[1.62] text-[color:color-mix(in_srgb,var(--fg)_90%,var(--bg))] max-[768px]:text-[0.94rem] max-[768px]:leading-[1.52]">
+        {bio}
       </p>
 
       {/* Centred with auto margins rather than -translate-y-1/2: GSAP folds the

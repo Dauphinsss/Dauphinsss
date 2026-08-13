@@ -7,6 +7,7 @@ import InfoCards from "./InfoCards";
 import MusicWidget from "./MusicWidget";
 import NowSection from "./NowSection";
 import Preloader from "./Preloader";
+import ProjectsSection from "./ProjectsSection";
 import ScrollProgress from "./ScrollProgress";
 import SkillsCarousel from "./SkillsCarousel";
 import TopBar from "./TopBar";
@@ -102,86 +103,114 @@ export default function PortfolioApp() {
     let cancelled = false;
     let cleanup = () => {};
 
-    Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(
-      ([{ gsap }, { ScrollTrigger }]) => {
+    Promise.all([
+      import("gsap"),
+      import("gsap/ScrollTrigger"),
+      import("gsap/SplitText"),
+      import("gsap/ScrambleTextPlugin"),
+      import("gsap/CustomEase"),
+    ]).then(
+      ([{ gsap }, { ScrollTrigger }, { SplitText }, { ScrambleTextPlugin }, { CustomEase }]) => {
         if (cancelled || !mainRef.current) return;
-        gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin, CustomEase);
 
-        const ctx = gsap.context(() => {
-          // Above the fold: runs on load.
-          // The header itself is delivered by the preloader handoff, so the
-          // intro only picks up from the controls onward.
-          const intro = gsap.timeline();
-          intro
-            .from(".js-control", {
-              y: -10,
-              opacity: 0,
-              duration: 0.5,
-              stagger: 0.08,
-              ease: "power2.out",
-              clearProps: "all",
-            })
-            .from(
-              ".js-hero > *:not(.js-bio)",
-              {
-                y: 22,
+        const SIGNATURE = CustomEase.create("signature", "M0,0 C0.2,0 0.1,1 1,1");
+
+        {
+          const ctx = gsap.context(() => {
+            // Above the fold: runs on load.
+            // The header itself is delivered by the preloader handoff, so the
+            // intro only picks up from the controls onward.
+            const intro = gsap.timeline();
+            intro
+              .from(".js-control", {
+                y: -10,
                 opacity: 0,
-                duration: 0.75,
-                stagger: 0.09,
-                ease: "power3.out",
+                duration: 0.5,
+                stagger: 0.08,
+                ease: "power2.out",
                 clearProps: "all",
-              },
-              "-=0.35",
-            )
-            // The bio rises word by word out of its masks.
-            .from(
-              ".js-bio-word",
-              {
-                yPercent: 115,
-                duration: 0.7,
-                stagger: 0.012,
-                ease: "power3.out",
-                clearProps: "all",
-              },
-              "-=0.45",
-            );
+              })
+              .from(
+                ".js-hero > *:not(.js-bio)",
+                {
+                  y: 22,
+                  opacity: 0,
+                  duration: 0.75,
+                  stagger: 0.09,
+                  ease: "power3.out",
+                  clearProps: "all",
+                },
+                "-=0.35",
+              )
+              // SplitText measures real line boxes, so the bio rises line by
+              // line and reflows correctly instead of guessing at word wrap.
+              .from(
+                new SplitText(".js-bio", { type: "lines", mask: "lines" }).lines,
+                {
+                  yPercent: 110,
+                  rotateX: -55,
+                  duration: 1,
+                  stagger: 0.09,
+                  ease: SIGNATURE,
+                },
+                "-=0.5",
+              );
 
-          // Below the fold: each block waits until it is actually scrolled to.
-          const reveal = (target: string, vars: gsap.TweenVars) => {
-            for (const el of gsap.utils.toArray<HTMLElement>(target)) {
-              gsap.from(el, {
-                ...vars,
-                clearProps: "all",
-                scrollTrigger: { trigger: el, start: "top 88%", once: true },
-              });
-            }
-          };
+            // Below the fold: each block waits until it is actually scrolled to.
+            const reveal = (target: string, vars: gsap.TweenVars) => {
+              for (const el of gsap.utils.toArray<HTMLElement>(target)) {
+                gsap.from(el, {
+                  ...vars,
+                  clearProps: "all",
+                  scrollTrigger: { trigger: el, start: "top 88%", once: true },
+                });
+              }
+            };
 
-          reveal(".js-work", { y: 34, opacity: 0, duration: 0.7, ease: "power3.out" });
-          reveal(".js-cards .card", { y: 26, opacity: 0, duration: 0.6, ease: "power3.out" });
-          reveal(".js-cta", { y: 30, opacity: 0, duration: 0.7, ease: "power3.out" });
-          reveal(".js-footer", { y: 10, opacity: 0, duration: 0.4 });
+            reveal(".js-work", { y: 34, opacity: 0, duration: 0.7, ease: "power3.out" });
+            reveal(".js-cards .card", { y: 26, opacity: 0, duration: 0.6, ease: "power3.out" });
+            reveal(".js-project", { y: 26, opacity: 0, duration: 0.6, ease: "power3.out" });
+            reveal(".js-cta", { y: 30, opacity: 0, duration: 0.7, ease: "power3.out" });
+            reveal(".js-footer", { y: 10, opacity: 0, duration: 0.4 });
 
-          gsap.from(".js-now-line", {
-            yPercent: 115,
-            duration: 0.75,
-            stagger: 0.09,
-            ease: "power3.out",
-            clearProps: "all",
-            scrollTrigger: { trigger: ".js-now", start: "top 85%", once: true },
-          });
+            gsap.from(".js-now-line", {
+              yPercent: 115,
+              duration: 0.75,
+              stagger: 0.09,
+              ease: "power3.out",
+              clearProps: "all",
+              scrollTrigger: { trigger: ".js-now", start: "top 85%", once: true },
+            });
 
-          // Layers drift at different speeds so the hero gains depth on scroll.
-          // Only above 1100px: below that the cat sits in normal flow and any
-          // parallax would shove it into the paragraph above it.
-          const mm = gsap.matchMedia();
+            // Layers drift at different speeds so the hero gains depth on scroll.
+            // Only above 1100px: below that the cat sits in normal flow and any
+            // parallax would shove it into the paragraph above it.
+            const mm = gsap.matchMedia();
 
-          mm.add("(min-width: 1100px)", () => {
-            const drift = (target: string, yPercent: number) => {
-              const el = document.querySelector(target);
-              if (!el) return;
-              gsap.to(el, {
-                yPercent,
+            mm.add("(min-width: 1100px)", () => {
+              const drift = (target: string, yPercent: number) => {
+                const el = document.querySelector(target);
+                if (!el) return;
+                gsap.to(el, {
+                  yPercent,
+                  ease: "none",
+                  scrollTrigger: {
+                    trigger: ".js-hero",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 0.6,
+                  },
+                });
+              };
+
+              drift(".js-hero-ghost", 26);
+              drift(".js-cat", -12);
+            });
+
+            mm.add("(max-width: 1099px)", () => {
+              gsap.to(".js-hero-ghost", {
+                yPercent: 18,
                 ease: "none",
                 scrollTrigger: {
                   trigger: ".js-hero",
@@ -190,46 +219,41 @@ export default function PortfolioApp() {
                   scrub: 0.6,
                 },
               });
-            };
-
-            drift(".js-hero-ghost", 26);
-            drift(".js-cat", -12);
-          });
-
-          mm.add("(max-width: 1099px)", () => {
-            gsap.to(".js-hero-ghost", {
-              yPercent: 18,
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".js-hero",
-                start: "top top",
-                end: "bottom top",
-                scrub: 0.6,
-              },
             });
-          });
 
-          gsap.from(".js-cta-action", {
-            y: 12,
-            opacity: 0,
-            duration: 0.45,
-            stagger: 0.08,
-            ease: "power2.out",
-            clearProps: "all",
-            scrollTrigger: { trigger: ".js-cta", start: "top 78%", once: true },
-          });
+            gsap.from(".js-cta-action", {
+              y: 12,
+              opacity: 0,
+              duration: 0.45,
+              stagger: 0.08,
+              ease: "power2.out",
+              clearProps: "all",
+              scrollTrigger: { trigger: ".js-cta", start: "top 78%", once: true },
+            });
 
-          gsap.from(".js-link", {
-            x: -10,
-            opacity: 0,
-            duration: 0.4,
-            stagger: 0.06,
-            clearProps: "all",
-            scrollTrigger: { trigger: ".js-cards", start: "top 80%", once: true },
-          });
-        }, mainRef);
+            gsap.from(".js-link", {
+              x: -10,
+              opacity: 0,
+              duration: 0.4,
+              stagger: 0.06,
+              clearProps: "all",
+              scrollTrigger: { trigger: ".js-cards", start: "top 80%", once: true },
+            });
 
-        cleanup = () => ctx.revert();
+            // Section labels decode themselves — reads as machine type, which is
+            // what the mono/pixel lettering is already suggesting.
+            for (const label of gsap.utils.toArray<HTMLElement>(".js-scramble")) {
+              const text = label.textContent ?? "";
+              gsap.to(label, {
+                duration: 1.1,
+                scrambleText: { text, chars: "upperCase", speed: 0.45, revealDelay: 0.15 },
+                scrollTrigger: { trigger: label, start: "top 92%", once: true },
+              });
+            }
+          }, mainRef);
+
+          cleanup = () => ctx.revert();
+        }
       },
     );
 
@@ -281,6 +305,8 @@ export default function PortfolioApp() {
             whatsapp: dictionary.whatsapp,
           }}
         />
+
+        <ProjectsSection title={dictionary.projectsTitle} items={dictionary.projects} />
 
         <NowSection title={dictionary.nowTitle} items={dictionary.nowItems} />
 

@@ -208,7 +208,7 @@ export default function SkillsCarousel({ title, rows }: Props) {
 
   return (
     <section className="js-work skills-glow relative mt-4 mb-5 overflow-hidden border border-[var(--border)] bg-[var(--card)] py-5 max-[768px]:py-4">
-      <p className="relative z-[2] mb-3 ml-4 [font-family:var(--font-body)] text-[0.78rem] tracking-[0.14em] text-[color:var(--muted)] uppercase">
+      <p className="js-scramble relative z-[2] mb-3 ml-4 [font-family:var(--font-body)] text-[0.78rem] tracking-[0.14em] text-[color:var(--muted)] uppercase">
         {title}
       </p>
       <div className="relative z-[2] space-y-2">
